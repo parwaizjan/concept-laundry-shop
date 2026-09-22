@@ -48,7 +48,9 @@ const wa = whatsappLink(t.contact.whatsappMessage);
     </nav>
 
     <div class="flex shrink-0 items-center gap-1.5">
-      <LangToggle locale={locale} pathname={pathname} />
+      <div class="hidden lg:block">
+        <LangToggle locale={locale} pathname={pathname} />
+      </div>
 
       <details data-mobile-menu class="relative lg:hidden">
         <summary
@@ -60,7 +62,14 @@ const wa = whatsappLink(t.contact.whatsappMessage);
         <div
           class="absolute right-0 top-12 z-50 w-64 max-w-[calc(100vw-2.5rem)] rounded-brand border border-ink/10 bg-surface p-3 shadow-xl"
         >
-          <nav class="flex flex-col" aria-label="Mobile">
+          <div class="flex items-center justify-between gap-2 px-2 pb-2">
+            <span class="text-xs font-semibold uppercase tracking-wide text-ink-muted">
+              {t.actions.language}
+            </span>
+            <LangToggle locale={locale} pathname={pathname} />
+          </div>
+
+          <nav class="flex flex-col border-t border-ink/10 pt-1" aria-label="Mobile">
             {
               visibleNav.map((section) => (
                 <a
@@ -72,6 +81,7 @@ const wa = whatsappLink(t.contact.whatsappMessage);
               ))
             }
           </nav>
+
           <div class="mt-2 flex flex-col gap-2 border-t border-ink/10 pt-3">
             <Button href={wa} variant="whatsapp" class="w-full" target="_blank" rel="noopener">
               <Icon name="whatsapp" class="h-4 w-4" />
