@@ -47,19 +47,8 @@ const wa = whatsappLink(t.contact.whatsappMessage);
       }
     </nav>
 
-    <div class="flex items-center gap-1.5">
+    <div class="flex shrink-0 items-center gap-1.5">
       <LangToggle locale={locale} pathname={pathname} />
-
-      <Button
-        href={wa}
-        variant="whatsapp"
-        class="hidden sm:inline-flex"
-        target="_blank"
-        rel="noopener"
-      >
-        <Icon name="whatsapp" class="h-4 w-4" />
-        <span>{t.actions.whatsapp}</span>
-      </Button>
 
       <details data-mobile-menu class="relative lg:hidden">
         <summary
