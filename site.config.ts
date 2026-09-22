@@ -29,6 +29,7 @@ export interface SiteSection {
 
 export interface SiteConfig {
   url: string;
+  indexable: boolean;
   brand: {
     name: string;
     tagline: string;
@@ -54,6 +55,7 @@ export interface SiteConfig {
 
 const siteConfig: SiteConfig = {
   url: 'https://concept-laundry-shop.parwaiz-jan-ij.workers.dev',
+  indexable: false,
   brand: {
     name: 'FreshFold Laundry',
     tagline: 'Fresh clothes, delivered to your door.',

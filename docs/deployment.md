@@ -91,6 +91,11 @@ Other constraints:
 - Optional email uses a **binding**, not an API key (preferred).
 - If a third-party provider is used, store its key as a Cloudflare Worker secret (dashboard) or GitHub Actions secret.
 
+## Search engine visibility
+
+- `site.config.ts → indexable` controls everything: when `false` (the concept default) `BaseLayout` adds `<meta name="robots" content="noindex, nofollow">` and `robots.txt` returns `Disallow: /` with no sitemap; when `true` the site is crawlable and `robots.txt` advertises the absolute sitemap URL.
+- The concept needs **no custom domain** — share the `*.workers.dev` URL by WhatsApp or show it on a phone. Set `indexable: true` only for real client deployments.
+
 ## DNS / domains
 
 - Custom domains are attached in the Cloudflare dashboard per Worker.

@@ -34,6 +34,13 @@ async function ask(label, fallback) {
   return answer || fallback;
 }
 
+async function askBoolean(label, fallback) {
+  if (!interactive) return fallback;
+  const answer = (await rl.question(`${label} [${fallback ? 'y' : 'n'}]: `)).trim().toLowerCase();
+  if (!answer) return fallback;
+  return answer.startsWith('y');
+}
+
 function parseCurrent(text) {
   const grab = (re, fallback = '') => (text.match(re)?.[1] ?? fallback).trim();
   const enabledMatch = text.match(/enabled:\s*\[([^\]]*)\]/);
@@ -59,6 +66,7 @@ function parseCurrent(text) {
   );
   return {
     url: grab(/url:\s*'([^']*)'/),
+    indexable: text.match(/indexable:\s*(true|false)/)?.[1] !== 'false',
     brandName: grab(/name:\s*'([^']*)'/),
     tagline: grab(/tagline:\s*'([^']*)'/),
     whatsapp: grab(/whatsapp:\s*'([^']*)'/),
@@ -123,6 +131,7 @@ export interface SiteSection {
 
 export interface SiteConfig {
   url: string;
+  indexable: boolean;
   brand: {
     name: string;
     tagline: string;
@@ -148,6 +157,7 @@ export interface SiteConfig {
 
 const siteConfig: SiteConfig = {
   url: '${next.url}',
+  indexable: ${next.indexable},
   brand: {
     name: '${next.brandName}',
     tagline: '${next.tagline}',
@@ -191,6 +201,7 @@ async function main() {
   const brandName = await ask('Brand name', existing.brandName);
   const slug = slugify(await ask('Repo / Worker slug', slugify(brandName)));
   const url = await ask('Site URL', existing.url);
+  const indexable = await askBoolean('Allow search engines to index this site?', existing.indexable);
   const tagline = await ask('Tagline', existing.tagline);
   const whatsapp = await ask('WhatsApp number (with country code)', existing.whatsapp);
   const phone = await ask('Phone number', existing.phone);
@@ -223,6 +234,7 @@ async function main() {
 
   const next = {
     url,
+    indexable,
     brandName,
     tagline,
     whatsapp,

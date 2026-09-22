@@ -75,6 +75,12 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [ ] Point a custom domain at the Worker when pitching.
 - [ ] Consider the optional email adapter for clients who want it.
 
+## Phase 9 — Concept hardening ✅
+
+- [x] Add `indexable` flag; concept ships `noindex` + `robots Disallow: /` (D-021).
+- [x] Mobile-first navigation: CSS-first mobile menu + progressive-enhancement close script (D-022).
+- [x] Tuned tap targets, language toggle, FAB clearance, pricing note alignment.
+
 ## Backlog / ideas
 
 - Optional contact form + Cloudflare email adapter.

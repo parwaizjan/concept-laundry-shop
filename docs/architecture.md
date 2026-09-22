@@ -71,6 +71,7 @@ Single source of truth per client, rewritten by `pnpm setup`:
 ```ts
 {
   url,                                  // site origin (sitemap, canonical, OG)
+  indexable,                            // false = noindex + robots Disallow (concept)
   brand:   { name, tagline, logo, ogImage },
   contact: { whatsapp, phone, email, address, mapUrl },
   locale:  { default: 'en', enabled: ['en','si','ta'] },
@@ -104,7 +105,13 @@ Components read from here and from `src/i18n` — never hardcode brand, phone, o
 
 `Home` composes the sections in order, gated by `siteConfig.sections`: `Hero → TrustBar → Services → HowItWorks → Pricing → Testimonials → Faq → LocationMap → ContactCta`. `Header` (with `LangToggle`) and `Footer` wrap the page; `WhatsAppFab` floats on all pages.
 
-Guidelines: semantic HTML, accessible labels and focus states, mobile-first, no hardcoded brand values, no client-side framework islands (zero JS shipped by default).
+Guidelines: semantic HTML, accessible labels and focus states, mobile-first, no hardcoded brand values, no client-side framework islands. The only shipped JavaScript is a tiny inline script that closes the mobile menu (`<details>`) on navigation/outside tap — the menu works without it.
+
+## Indexing
+
+- `siteConfig.indexable` drives two things: `BaseLayout` adds `<meta name="robots" content="noindex, nofollow">` when `false`, and `src/pages/robots.txt.ts` returns `Disallow: /` (no sitemap) when `false`.
+- The concept ships `false`; client clones flip it to `true` in `pnpm setup`.
+- The sitemap is still generated for the build; it is simply not advertised or crawlable while `indexable` is `false`.
 
 ## Optional email adapter (off by default)
 

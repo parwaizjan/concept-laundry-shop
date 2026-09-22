@@ -138,6 +138,20 @@ Append-only. Each entry: ID, date, decision, rationale, alternatives considered.
 - **Decision:** Add `src/pages/404.astro` and set `assets.not_found_handling: "404-page"` in `wrangler.jsonc`; generate `robots.txt` from `src/pages/robots.txt.ts` so the sitemap URL is absolute.
 - **Rationale:** Correct 404s on Workers static assets; robots.txt must not hardcode a domain that changes per client.
 
+## D-021 — Search-engine visibility is configurable; concept is `noindex`
+
+- **Date:** 2026-09-22
+- **Decision:** Add `indexable: boolean` to `site.config.ts`. The concept/demo ships **`false`**: `BaseLayout` emits `<meta name="robots" content="noindex, nofollow">` and `robots.txt` returns `Disallow: /` (no sitemap). Client clones set `indexable: true` via `pnpm setup`, restoring `Allow: /` + absolute `Sitemap:` URL.
+- **Rationale:** The concept is a pitch tool shared by link/WhatsApp and must not be indexed; real client sites do want SEO. One flag covers both.
+- **Alternatives:** Hardcoded noindex (rejected: client sites need indexing); removing the demo from a domain (rejected: no custom domain).
+
+## D-022 — Mobile-first, CSS-first navigation
+
+- **Date:** 2026-09-22
+- **Decision:** Optimise for phones (most visitors arrive via a WhatsApp link). The header gets a **CSS-first mobile menu** (`<details>`/`<summary>`) shown below `lg`; it contains section links plus WhatsApp/Call CTAs. A ~10-line inline module script closes the menu after a link tap or an outside tap (progressive enhancement — the menu works without JS). Tap targets, spacing, the language toggle, and the floating WhatsApp button's clearance were tuned for small screens.
+- **Rationale:** Full navigation without shipping a framework; the FAB and menu keep key actions thumb-reachable.
+- **Alternatives:** A client-side framework menu (rejected: heavy); no mobile nav (rejected: navigation gap).
+
 ---
 
 ## Open questions

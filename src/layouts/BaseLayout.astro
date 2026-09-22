@@ -42,6 +42,7 @@ const defaultHref = new URL(switchLocalePath(Astro.url.pathname, defaultLocale),
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    {!siteConfig.indexable && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     {
       alternates.map((alternate) => (

@@ -25,6 +25,8 @@ A reusable **Astro** website template for **laundry shops**, built initially as 
 - **Keep `/docs` updated.** When a decision, structure, workflow, or fact changes, update the relevant doc and `docs/decisions.md`. Documentation is the durable memory across conversations.
 - **The template *is* the demo.** Do not fork the demo into a separate codebase; keep them the same tree.
 - **Static by default, WhatsApp by default.** The concept ships static with WhatsApp CTAs. Email is an optional adapter that is **off by default**.
+- **Not indexed by default.** The concept is a pitch tool: `site.config.ts → indexable: false` emits `noindex` and `robots.txt Disallow: /`. Client clones set it `true` via `pnpm setup`.
+- **Mobile-first.** Most visitors open the link on a phone (often from WhatsApp). Keep layouts single-column on small screens, tap targets comfortable, and the floating WhatsApp button reachable.
 - **Don't commit secrets.** Cloudflare credentials live in the dashboard; any deploy tokens live in GitHub/Cloudflare secrets, never in the repo.
 - **Don't add dependencies without a decision-log entry.** Prefer the stack in `docs/architecture.md`.
 
@@ -97,4 +99,4 @@ pnpm deploy        # wrangler deploy (or rely on Workers Builds)
 - **All copy lives in `src/i18n/{en,si,ta}.json`** and the three files must stay structurally identical (see D-018). No Astro Content Collections in this template.
 - Keep brand/contact/locale/theme/section toggles in `site.config.ts`; never hardcode them in components.
 - Keep components small, accessible (semantic HTML, labels, focus states), and mobile-first.
-- Zero client-side JS by default; the optional email route is the sole on-demand endpoint.
+- Zero client-side framework/islands. The only shipped JS is a tiny inline script that closes the mobile menu (`<details>`); the menu is usable without it. The optional email route is the sole on-demand endpoint.

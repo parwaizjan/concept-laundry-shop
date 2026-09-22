@@ -2,7 +2,7 @@
 import type { Locale } from '../../site.config';
 import siteConfig from '../../site.config';
 import type { Messages } from '../i18n/utils';
-import { localizedPath, navSections, whatsappLink } from '../i18n/utils';
+import { localizedPath, navSections, telLink, whatsappLink } from '../i18n/utils';
 import Button from './Button.astro';
 import Icon from './Icon.astro';
 import LangToggle from './LangToggle.astro';
@@ -16,19 +16,20 @@ interface Props {
 const { locale, t, pathname } = Astro.props;
 const homeHref = localizedPath('', locale);
 const visibleNav = navSections.filter((s) => siteConfig.sections[s.configKey]);
+const wa = whatsappLink(t.contact.whatsappMessage);
 ---
 
-<header class="sticky top-0 z-40 border-b border-ink/10 bg-surface/85 backdrop-blur">
-  <div class="container-page flex h-16 items-center justify-between gap-4">
-    <a href={homeHref} class="flex items-center gap-2.5">
+<header class="sticky top-0 z-40 border-b border-ink/10 bg-surface/90 backdrop-blur">
+  <div class="container-page flex h-16 items-center justify-between gap-3">
+    <a href={homeHref} class="flex min-w-0 items-center gap-2.5">
       <img
         src={siteConfig.brand.logo}
         alt=""
         width="36"
         height="36"
-        class="h-9 w-9 rounded-xl"
+        class="h-9 w-9 shrink-0 rounded-xl"
       />
-      <span class="font-display text-lg font-bold tracking-tight text-ink">
+      <span class="truncate font-display text-base font-bold tracking-tight text-ink sm:text-lg">
         {siteConfig.brand.name}
       </span>
     </a>
@@ -46,10 +47,11 @@ const visibleNav = navSections.filter((s) => siteConfig.sections[s.configKey]);
       }
     </nav>
 
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-1.5">
       <LangToggle locale={locale} pathname={pathname} />
+
       <Button
-        href={whatsappLink(t.contact.whatsappMessage)}
+        href={wa}
         variant="whatsapp"
         class="hidden sm:inline-flex"
         target="_blank"
@@ -58,6 +60,58 @@ const visibleNav = navSections.filter((s) => siteConfig.sections[s.configKey]);
         <Icon name="whatsapp" class="h-4 w-4" />
         <span>{t.actions.whatsapp}</span>
       </Button>
+
+      <details data-mobile-menu class="relative lg:hidden">
+        <summary
+          class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full border border-ink/10 text-ink transition hover:bg-surface-muted [&::-webkit-details-marker]:hidden"
+          aria-label={t.actions.menu}
+        >
+          <Icon name="menu" class="h-5 w-5" />
+        </summary>
+        <div
+          class="absolute right-0 top-12 z-50 w-64 max-w-[calc(100vw-2.5rem)] rounded-brand border border-ink/10 bg-surface p-3 shadow-xl"
+        >
+          <nav class="flex flex-col" aria-label="Mobile">
+            {
+              visibleNav.map((section) => (
+                <a
+                  href={`#${section.id}`}
+                  class="rounded-xl px-3 py-3 text-sm font-medium text-ink-muted transition hover:bg-surface-muted hover:text-ink"
+                >
+                  {t.nav[section.key]}
+                </a>
+              ))
+            }
+          </nav>
+          <div class="mt-2 flex flex-col gap-2 border-t border-ink/10 pt-3">
+            <Button href={wa} variant="whatsapp" class="w-full" target="_blank" rel="noopener">
+              <Icon name="whatsapp" class="h-4 w-4" />
+              {t.actions.whatsapp}
+            </Button>
+            <Button href={telLink()} variant="secondary" class="w-full">
+              <Icon name="phone" class="h-4 w-4" />
+              {t.actions.call}
+            </Button>
+          </div>
+        </div>
+      </details>
     </div>
   </div>
 </header>
+
+<script>
+  const menus = document.querySelectorAll<HTMLDetailsElement>('details[data-mobile-menu]');
+  const closeAll = () => menus.forEach((menu) => menu.removeAttribute('open'));
+
+  menus.forEach((menu) => {
+    menu.addEventListener('click', (event) => {
+      if (event.target instanceof Element && event.target.closest('a')) closeAll();
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (event.target instanceof Element && !event.target.closest('details[data-mobile-menu]')) {
+      closeAll();
+    }
+  });
+</script>

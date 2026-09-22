@@ -11,6 +11,7 @@ All user-facing copy lives in **three parallel locale catalogs**: `src/i18n/en.j
 | Brand name, tagline, logo, OG image | `site.config.ts` → `brand` |
 | WhatsApp number, phone, email, address, map link | `site.config.ts` → `contact` |
 | Currency, default locale, enabled locales | `site.config.ts` → `locale`, `currency` |
+| Search-engine indexing (off for the concept) | `site.config.ts` → `indexable` |
 | Theme preset | `src/styles/theme.css` (or `pnpm setup`) |
 | Section visibility | `site.config.ts` → `sections` |
 | Page title + meta description | `en.json`/`si.json`/`ta.json` → `meta` |
