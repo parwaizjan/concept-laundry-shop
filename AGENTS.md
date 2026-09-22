@@ -8,7 +8,7 @@ A reusable **Astro** website template for **laundry shops**, built initially as 
 
 ## Current status
 
-**Built and passing checks; not yet deployed.** Phases 0–7 of `docs/roadmap.md` are done: the Astro site builds (`pnpm build`), type-checks (`pnpm check`), and passes `wrangler deploy --dry-run`. Remaining: create the GitHub template repo, connect Cloudflare Workers Builds, deploy, and record the demo URL (Phase 8).
+**Built and passing checks; not yet deployed.** Phases 0–7 of `docs/roadmap.md` are done: the Astro site builds (`pnpm build`), type-checks (`pnpm check`), and passes `wrangler deploy --dry-run`. The private repo is at `github.com/parwaizjan/concept-laundry-shop` (branch `main`). Remaining: connect Cloudflare Workers Builds, deploy, set the real `site.config.ts → url`, and record the demo URL (Phase 8).
 
 ## Read these first (source of truth)
 
