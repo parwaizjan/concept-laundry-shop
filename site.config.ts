@@ -53,7 +53,7 @@ export interface SiteConfig {
 }
 
 const siteConfig: SiteConfig = {
-  url: 'https://freshfold.example.com',
+  url: 'https://concept-laundry-shop.parwaiz-jan-ij.workers.dev',
   brand: {
     name: 'FreshFold Laundry',
     tagline: 'Fresh clothes, delivered to your door.',

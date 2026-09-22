@@ -59,14 +59,21 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] `README.md` quick start + edit map.
 - [x] Deployment + content docs reflect the built reality.
 
-## Phase 8 — Deploy demo ⏳ (needs Cloudflare access)
+## Phase 8 — Deploy demo ✅
 
 - [x] Create the private GitHub repo and push this tree: `github.com/parwaizjan/concept-laundry-shop` (branch `main`).
-- [ ] Connect it to Workers Builds (build `npx astro build`, deploy `npx wrangler deploy`).
-- [ ] Attach a domain / workers.dev URL and verify on mobile.
-- [ ] Set `site.config.ts → url` to the live URL (canonical/sitemap currently use the placeholder).
-- [ ] Record the demo URL here.
-- [ ] Optionally mark the repo as a GitHub **template** for the per-client clone flow (D-001).
+- [x] Connect it to Workers Builds (build `npx astro build`, deploy `npx wrangler deploy`).
+- [x] Deploy and verify on desktop + mobile (375px).
+- [x] Set `site.config.ts → url` to the live URL.
+- [x] Demo URL: **https://concept-laundry-shop.parwaiz-jan-ij.workers.dev/**
+- [x] Marked the repo as a GitHub **template** for the per-client clone flow (D-001).
+
+## Post-launch polish
+
+- [ ] Replace placeholder logo/favicon/OG with real assets (OG should be a 1200×630 raster).
+- [ ] Native-speaker review of Sinhala/Tamil copy.
+- [ ] Point a custom domain at the Worker when pitching.
+- [ ] Consider the optional email adapter for clients who want it.
 
 ## Backlog / ideas
 
