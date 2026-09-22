@@ -1,0 +1,22 @@
+---
+import type { Messages } from '../i18n/utils';
+
+interface Props {
+  t: Messages;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="border-y border-ink/10 bg-surface-muted">
+  <div class="container-page grid grid-cols-2 gap-6 py-10 sm:grid-cols-4">
+    {
+      t.trust.items.map((item) => (
+        <div class="text-center">
+          <p class="font-display text-3xl font-bold text-brand">{item.value}</p>
+          <p class="mt-1 text-sm text-ink-muted">{item.label}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

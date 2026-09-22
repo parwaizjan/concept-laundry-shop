@@ -1,0 +1,26 @@
+---
+import siteConfig from '../../site.config';
+import { defaultLocale, localizedPath, useTranslations } from '../i18n/utils';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import LangToggle from '../components/LangToggle.astro';
+
+const locale = defaultLocale;
+const t = useTranslations(locale);
+const homeHref = localizedPath('', locale);
+---
+
+<BaseLayout title={`404 | ${siteConfig.brand.name}`} lang={locale}>
+  <main class="flex min-h-dvh flex-col items-center justify-center px-6 text-center">
+    <img src={siteConfig.brand.logo} alt="" width="56" height="56" class="h-14 w-14 rounded-2xl" />
+    <p class="mt-6 font-display text-6xl font-bold text-brand">404</p>
+    <h1 class="mt-2 text-2xl font-bold text-ink">{siteConfig.brand.name}</h1>
+    <p class="mt-3 max-w-md text-ink-muted">The page you are looking for could not be found.</p>
+    <div class="mt-8">
+      <Button href={homeHref} variant="primary">{t.actions.backHome}</Button>
+    </div>
+    <div class="mt-6">
+      <LangToggle locale={locale} pathname={Astro.url.pathname} />
+    </div>
+  </main>
+</BaseLayout>

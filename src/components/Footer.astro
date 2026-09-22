@@ -1,0 +1,91 @@
+---
+import type { Locale } from '../../site.config';
+import siteConfig from '../../site.config';
+import type { Messages } from '../i18n/utils';
+import { localizedPath, navSections, telLink, whatsappLink } from '../i18n/utils';
+import Icon from './Icon.astro';
+
+interface Props {
+  locale: Locale;
+  t: Messages;
+}
+
+const { locale, t } = Astro.props;
+const { brand, contact } = siteConfig;
+const year = new Date().getFullYear();
+const homeHref = localizedPath('', locale);
+const visibleNav = navSections.filter((s) => siteConfig.sections[s.configKey]);
+---
+
+<footer class="border-t border-ink/10 bg-surface-muted">
+  <div class="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="sm:col-span-2 lg:col-span-2">
+      <a href={homeHref} class="flex items-center gap-2.5">
+        <img src={brand.logo} alt="" width="32" height="32" class="h-8 w-8 rounded-lg" />
+        <span class="font-display text-lg font-bold text-ink">{brand.name}</span>
+      </a>
+      <p class="mt-4 max-w-sm text-sm text-ink-muted">{t.footer.tagline}</p>
+    </div>
+
+    <nav aria-label="Footer">
+      <h2 class="text-sm font-bold text-ink">{t.footer.linksTitle}</h2>
+      <ul class="mt-4 space-y-2.5">
+        {
+          visibleNav.map((section) => (
+            <li>
+              <a
+                href={`#${section.id}`}
+                class="text-sm text-ink-muted transition hover:text-ink"
+              >
+                {t.nav[section.key]}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div>
+      <h2 class="text-sm font-bold text-ink">{t.footer.contactTitle}</h2>
+      <ul class="mt-4 space-y-2.5 text-sm text-ink-muted">
+        <li>
+          <a
+            href={whatsappLink(t.contact.whatsappMessage)}
+            class="inline-flex items-center gap-2 transition hover:text-ink"
+            target="_blank"
+            rel="noopener"
+          >
+            <Icon name="whatsapp" class="h-4 w-4" />
+            {contact.whatsapp}
+          </a>
+        </li>
+        <li>
+          <a href={telLink()} class="inline-flex items-center gap-2 transition hover:text-ink">
+            <Icon name="phone" class="h-4 w-4" />
+            {contact.phone}
+          </a>
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="map-pin" class="mt-0.5 h-4 w-4 shrink-0" />
+          <span>{contact.address}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-ink/10">
+    <div
+      class="container-page flex flex-col items-center justify-between gap-3 py-5 text-xs text-ink-muted sm:flex-row"
+    >
+      <p>© {year} {brand.name}. {t.footer.rights}</p>
+      <div class="flex items-center gap-4">
+        <a href={localizedPath('privacy', locale)} class="transition hover:text-ink">
+          {t.footer.privacy}
+        </a>
+        <a href={localizedPath('terms', locale)} class="transition hover:text-ink">
+          {t.footer.terms}
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

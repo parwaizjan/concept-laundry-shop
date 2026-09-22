@@ -1,0 +1,233 @@
+{
+  "localeName": "English",
+  "meta": {
+    "title": "FreshFold Laundry — Wash, Iron & Dry Cleaning in Nugegoda",
+    "description": "Professional laundry and dry cleaning with free pickup and delivery in Nugegoda, Colombo. Order on WhatsApp in seconds."
+  },
+  "nav": {
+    "services": "Services",
+    "howItWorks": "How it works",
+    "pricing": "Pricing",
+    "reviews": "Reviews",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "actions": {
+    "whatsapp": "Order on WhatsApp",
+    "call": "Call us",
+    "viewServices": "View services",
+    "directions": "Get directions",
+    "backHome": "Back to home"
+  },
+  "hero": {
+    "badge": "Laundry & dry cleaning in Nugegoda",
+    "title": "Fresh clothes, delivered to your door.",
+    "subtitle": "Skip the queue and the folding. We pick up, clean, press and return your clothes — usually within 24 hours.",
+    "points": [
+      "Free pickup & delivery",
+      "Ready in 24 hours",
+      "Wash, iron & dry clean"
+    ]
+  },
+  "trust": {
+    "items": [
+      { "value": "24h", "label": "Standard turnaround" },
+      { "value": "Free", "label": "Pickup & delivery" },
+      { "value": "4.9", "label": "Customer rating" },
+      { "value": "3", "label": "Languages supported" }
+    ]
+  },
+  "services": {
+    "title": "What we clean",
+    "subtitle": "Everyday laundry to delicate garments — handled with care.",
+    "from": "from",
+    "items": [
+      {
+        "name": "Wash & Fold",
+        "description": "Everyday clothes washed, dried and neatly folded.",
+        "price": "Rs. 250",
+        "unit": "per kg"
+      },
+      {
+        "name": "Wash & Iron",
+        "description": "Washed and professionally pressed, ready to wear.",
+        "price": "Rs. 350",
+        "unit": "per kg"
+      },
+      {
+        "name": "Dry Cleaning",
+        "description": "Suits, sarees and delicate fabrics cleaned safely.",
+        "price": "Rs. 800",
+        "unit": "per item"
+      },
+      {
+        "name": "Ironing Only",
+        "description": "Already clean? We press and finish it for you.",
+        "price": "Rs. 100",
+        "unit": "per item"
+      },
+      {
+        "name": "Curtains & Bedding",
+        "description": "Duvets, curtains and bulky items, freshened up.",
+        "price": "Rs. 500",
+        "unit": "per item"
+      },
+      {
+        "name": "Express 24h",
+        "description": "Need it tomorrow? Jump the queue with express service.",
+        "price": "Rs. 450",
+        "unit": "per kg"
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "subtitle": "Three steps. No app, no queue.",
+    "steps": [
+      {
+        "title": "Message us",
+        "description": "Send a WhatsApp message with your address and what needs cleaning."
+      },
+      {
+        "title": "We pick up",
+        "description": "Our rider collects your bag at a time that suits you."
+      },
+      {
+        "title": "Cleaned & delivered",
+        "description": "We wash, press and return everything — usually within 24 hours."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Simple pricing",
+    "subtitle": "Pay per kilo or per item. No hidden charges.",
+    "note": "Prices are indicative and confirmed on collection. Free pickup and delivery for orders over Rs. 2,500.",
+    "groups": [
+      {
+        "name": "By weight",
+        "items": [
+          { "name": "Wash & Fold", "price": "Rs. 250 / kg" },
+          { "name": "Wash & Iron", "price": "Rs. 350 / kg" },
+          { "name": "Express 24h", "price": "Rs. 450 / kg" }
+        ]
+      },
+      {
+        "name": "By item",
+        "items": [
+          { "name": "Shirt / Blouse", "price": "Rs. 150" },
+          { "name": "Trousers / Skirt", "price": "Rs. 180" },
+          { "name": "Suit (2-piece)", "price": "Rs. 800" },
+          { "name": "Saree", "price": "Rs. 900" },
+          { "name": "Duvet / Blanket", "price": "Rs. 700" }
+        ]
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What customers say",
+    "items": [
+      {
+        "quote": "They collect from my apartment and everything comes back crisp. I never touch an iron now.",
+        "name": "Nimali P.",
+        "location": "Nugegoda"
+      },
+      {
+        "quote": "Booked on WhatsApp in the morning, had my shirts back the next evening. Brilliant.",
+        "name": "Dinesh R.",
+        "location": "Dehiwala"
+      },
+      {
+        "quote": "Our office uniforms are always on time and spotless. Highly recommended.",
+        "name": "Sara F.",
+        "location": "Colombo 5"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "question": "How do I place an order?",
+        "answer": "Just send us a WhatsApp message. Tell us your address and what you need cleaned — we handle the rest."
+      },
+      {
+        "question": "Do you offer free pickup and delivery?",
+        "answer": "Yes. Pickup and delivery are free for orders over Rs. 2,500 within our Nugegoda service area."
+      },
+      {
+        "question": "How long does it take?",
+        "answer": "Standard service takes about 24 hours. Express 24-hour service is available for urgent orders."
+      },
+      {
+        "question": "How is the price calculated?",
+        "answer": "Everyday laundry is priced per kilogram. Separate items like suits, sarees and duvets are priced per item."
+      },
+      {
+        "question": "What payment methods do you accept?",
+        "answer": "Cash on delivery, bank transfer, or mobile payment. We will confirm when we collect your order."
+      }
+    ]
+  },
+  "location": {
+    "title": "Where to find us",
+    "subtitle": "Serving Nugegoda and nearby Colombo suburbs.",
+    "addressLabel": "Address",
+    "hoursLabel": "Opening hours",
+    "hours": [
+      { "day": "Monday – Friday", "time": "7:00 – 20:00" },
+      { "day": "Saturday", "time": "7:00 – 20:00" },
+      { "day": "Sunday", "time": "8:00 – 14:00" }
+    ]
+  },
+  "contact": {
+    "title": "Ready for fresh laundry?",
+    "subtitle": "Send us a message and we will arrange pickup at a time that suits you.",
+    "whatsappMessage": "Hi! I'd like to place a laundry order."
+  },
+  "footer": {
+    "tagline": "Laundry and dry cleaning with free pickup and delivery in Nugegoda, Colombo.",
+    "linksTitle": "Explore",
+    "contactTitle": "Contact",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "updated": "Last updated: September 2026",
+      "sections": [
+        {
+          "heading": "Information we collect",
+          "body": "When you contact us through WhatsApp or by phone, we collect the details you share, such as your name, phone number, address and order information, so we can provide our laundry service."
+        },
+        {
+          "heading": "How we use your information",
+          "body": "We use your information only to collect, clean and deliver your laundry, and to contact you about your order. We do not sell or share your information with third parties for marketing."
+        },
+        {
+          "heading": "Contact",
+          "body": "If you have any questions about this policy or your information, please contact us using the details on this website."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "updated": "Last updated: September 2026",
+      "sections": [
+        {
+          "heading": "Our service",
+          "body": "We provide laundry, ironing and dry cleaning services with pickup and delivery. Prices shown on this website are indicative and confirmed when your order is collected."
+        },
+        {
+          "heading": "Liability",
+          "body": "While we take great care with every item, we are not liable for damage to items that are not suitable for machine washing or dry cleaning, or for items left in pockets."
+        },
+        {
+          "heading": "Payment",
+          "body": "Payment is due on delivery unless otherwise agreed. We accept cash, bank transfer and mobile payment."
+        }
+      ]
+    }
+  }
+}

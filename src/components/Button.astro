@@ -1,0 +1,43 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'ghost' | 'whatsapp';
+  size?: 'md' | 'lg';
+  class?: string;
+  target?: string;
+  rel?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  class: className = '',
+  target,
+  rel,
+} = Astro.props;
+
+const base =
+  'inline-flex items-center justify-center gap-2 rounded-full font-semibold transition focus-visible:outline-none';
+
+const sizes = {
+  md: 'px-5 py-2.5 text-sm',
+  lg: 'px-6 py-3 text-base',
+};
+
+const variants = {
+  primary: 'bg-brand text-brand-foreground shadow-sm hover:bg-brand-strong',
+  secondary: 'border border-ink/15 bg-surface text-ink hover:bg-surface-muted',
+  ghost: 'text-ink hover:bg-surface-muted',
+  whatsapp: 'bg-[#25D366] text-white shadow-sm hover:bg-[#1eb457]',
+};
+---
+
+<a
+  href={href}
+  class:list={[base, sizes[size], variants[variant], className]}
+  target={target}
+  rel={rel}
+>
+  <slot />
+</a>

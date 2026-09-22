@@ -1,0 +1,35 @@
+---
+import type { Messages } from '../i18n/utils';
+import { telLink, whatsappLink } from '../i18n/utils';
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+
+interface Props {
+  t: Messages;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="contact" class="section scroll-mt-20">
+  <div class="container-page">
+    <div class="relative overflow-hidden rounded-brand bg-gradient-to-br from-brand to-brand-strong px-6 py-14 text-center text-brand-foreground sm:px-12 sm:py-20">
+      <div class="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-white/10"></div>
+      <div class="pointer-events-none absolute -bottom-20 -left-10 h-64 w-64 rounded-full bg-white/10"></div>
+
+      <h2 class="relative font-display text-3xl font-bold sm:text-4xl">{t.contact.title}</h2>
+      <p class="relative mx-auto mt-4 max-w-xl text-base opacity-90">{t.contact.subtitle}</p>
+
+      <div class="relative mt-8 flex flex-wrap justify-center gap-3">
+        <Button href={whatsappLink(t.contact.whatsappMessage)} size="lg" class="bg-white text-ink hover:bg-white/90" target="_blank" rel="noopener">
+          <Icon name="whatsapp" class="h-5 w-5" />
+          {t.actions.whatsapp}
+        </Button>
+        <Button href={telLink()} size="lg" variant="secondary" class="border-white/40 bg-transparent text-brand-foreground hover:bg-white/10">
+          <Icon name="phone" class="h-5 w-5" />
+          {t.actions.call}
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>

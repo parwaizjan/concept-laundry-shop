@@ -1,0 +1,40 @@
+---
+import type { Messages } from '../i18n/utils';
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+
+interface Props {
+  t: Messages;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="pricing" class="section scroll-mt-20">
+  <div class="container-page">
+    <SectionHeading title={t.pricing.title} subtitle={t.pricing.subtitle} align="center" />
+
+    <div class="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
+      {
+        t.pricing.groups.map((group) => (
+          <div class="rounded-brand border border-ink/10 bg-surface p-7">
+            <h3 class="font-display text-xl font-bold text-ink">{group.name}</h3>
+            <ul class="mt-5 divide-y divide-ink/10">
+              {group.items.map((item) => (
+                <li class="flex items-center justify-between gap-4 py-3 text-sm">
+                  <span class="text-ink-muted">{item.name}</span>
+                  <span class="font-semibold text-ink">{item.price}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mx-auto mt-8 flex max-w-2xl items-start gap-2 text-center text-sm text-ink-muted">
+      <Icon name="shield" class="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+      <span>{t.pricing.note}</span>
+    </p>
+  </div>
+</section>

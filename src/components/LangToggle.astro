@@ -1,0 +1,32 @@
+---
+import type { Locale } from '../../site.config';
+import { enabledLocales, localeShortName, switchLocalePath } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+}
+
+const { locale, pathname } = Astro.props;
+const locales = enabledLocales();
+---
+
+{locales.length > 1 && (
+  <nav aria-label="Language" class="flex items-center gap-1 rounded-full border border-ink/10 bg-surface p-0.5">
+    {locales.map((code) => (
+      <a
+        href={switchLocalePath(pathname, code)}
+        hreflang={code}
+        aria-current={code === locale ? 'true' : undefined}
+        class:list={[
+          'rounded-full px-2.5 py-1 text-xs font-semibold transition',
+          code === locale
+            ? 'bg-brand text-brand-foreground'
+            : 'text-ink-muted hover:text-ink',
+        ]}
+      >
+        {localeShortName(code)}
+      </a>
+    ))}
+  </nav>
+)}

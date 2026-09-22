@@ -1,0 +1,37 @@
+---
+import type { Messages } from '../i18n/utils';
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+
+interface Props {
+  t: Messages;
+}
+
+const { t } = Astro.props;
+const icons = ['shirt', 'iron', 'hanger', 'sparkles', 'bed', 'bolt'];
+---
+
+<section id="services" class="section scroll-mt-20">
+  <div class="container-page">
+    <SectionHeading title={t.services.title} subtitle={t.services.subtitle} align="center" />
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        t.services.items.map((item, index) => (
+          <article class="group rounded-brand border border-ink/10 bg-surface p-6 transition hover:-translate-y-1 hover:border-brand/40 hover:shadow-lg">
+            <span class="flex h-12 w-12 items-center justify-center rounded-brand bg-brand/10 text-brand">
+              <Icon name={icons[index] ?? 'shirt'} class="h-6 w-6" />
+            </span>
+            <h3 class="mt-5 text-lg font-bold text-ink">{item.name}</h3>
+            <p class="mt-2 text-sm text-ink-muted">{item.description}</p>
+            <p class="mt-5 text-sm text-ink-muted">
+              {t.services.from}{' '}
+              <span class="font-display text-lg font-bold text-ink">{item.price}</span>{' '}
+              <span class="text-xs">{item.unit}</span>
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

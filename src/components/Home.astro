@@ -1,0 +1,46 @@
+---
+import type { Locale } from '../../site.config';
+import siteConfig from '../../site.config';
+import { useTranslations } from '../i18n/utils';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import TrustBar from './TrustBar.astro';
+import Services from './Services.astro';
+import HowItWorks from './HowItWorks.astro';
+import Pricing from './Pricing.astro';
+import Testimonials from './Testimonials.astro';
+import Faq from './Faq.astro';
+import LocationMap from './LocationMap.astro';
+import ContactCta from './ContactCta.astro';
+import Footer from './Footer.astro';
+import WhatsAppFab from './WhatsAppFab.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const pathname = Astro.url.pathname;
+const s = siteConfig.sections;
+---
+
+<BaseLayout title={t.meta.title} description={t.meta.description} lang={locale}>
+  <Header locale={locale} t={t} pathname={pathname} />
+
+  <main>
+    {s.hero && <Hero t={t} />}
+    {s.trust && <TrustBar t={t} />}
+    {s.services && <Services t={t} />}
+    {s.howItWorks && <HowItWorks t={t} />}
+    {s.pricing && <Pricing t={t} />}
+    {s.testimonials && <Testimonials t={t} />}
+    {s.faq && <Faq t={t} />}
+    {s.location && <LocationMap t={t} />}
+    {s.contact && <ContactCta t={t} />}
+  </main>
+
+  <Footer locale={locale} t={t} />
+  <WhatsAppFab t={t} />
+</BaseLayout>

@@ -1,0 +1,37 @@
+---
+import type { Messages } from '../i18n/utils';
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+
+interface Props {
+  t: Messages;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="how-it-works" class="section scroll-mt-20 bg-surface-muted">
+  <div class="container-page">
+    <SectionHeading title={t.howItWorks.title} subtitle={t.howItWorks.subtitle} align="center" />
+
+    <ol class="mt-12 grid gap-6 md:grid-cols-3">
+      {
+        t.howItWorks.steps.map((step, index) => (
+          <li class="relative rounded-brand border border-ink/10 bg-surface p-7">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand font-display text-lg font-bold text-brand-foreground">
+              {index + 1}
+            </span>
+            <h3 class="mt-5 text-lg font-bold text-ink">{step.title}</h3>
+            <p class="mt-2 text-sm text-ink-muted">{step.description}</p>
+            {index < t.howItWorks.steps.length - 1 && (
+              <Icon
+                name="arrow-right"
+                class="absolute -right-3 top-1/2 hidden h-6 w-6 -translate-y-1/2 text-brand/40 md:block"
+              />
+            )}
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

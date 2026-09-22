@@ -1,0 +1,17 @@
+:root {
+  --brand: oklch(0.64 0.17 10);
+  --brand-strong: oklch(0.55 0.17 8);
+  --brand-fg: oklch(0.99 0 0);
+  --accent: oklch(0.82 0.1 340);
+  --surface: oklch(0.99 0.006 350);
+  --surface-muted: oklch(0.965 0.014 350);
+  --ink: oklch(0.27 0.03 0);
+  --ink-muted: oklch(0.53 0.03 0);
+  --ring: oklch(0.64 0.17 10);
+  --brand-radius: 1.75rem;
+
+  --display-font: 'DM Sans Variable', 'Noto Sans Sinhala Variable',
+    'Noto Sans Tamil Variable', ui-sans-serif, system-ui, sans-serif;
+  --body-font: 'Inter Variable', 'Noto Sans Sinhala Variable',
+    'Noto Sans Tamil Variable', ui-sans-serif, system-ui, sans-serif;
+}

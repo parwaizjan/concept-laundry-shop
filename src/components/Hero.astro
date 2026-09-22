@@ -1,0 +1,72 @@
+---
+import siteConfig from '../../site.config';
+import type { Messages } from '../i18n/utils';
+import { whatsappLink } from '../i18n/utils';
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+
+interface Props {
+  t: Messages;
+}
+
+const { t } = Astro.props;
+const wa = whatsappLink(t.contact.whatsappMessage);
+const [first, second, third] = t.hero.points;
+---
+
+<section class="relative overflow-hidden">
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute -left-24 -top-24 h-80 w-80 rounded-full bg-accent/30 blur-3xl"></div>
+    <div class="absolute -right-16 top-24 h-72 w-72 rounded-full bg-brand/20 blur-3xl"></div>
+  </div>
+
+  <div class="container-page grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-2">
+    <div>
+      <span class="section-label rounded-full bg-brand/10 px-3 py-1">{t.hero.badge}</span>
+      <h1 class="mt-5 text-4xl font-bold leading-[1.05] text-ink sm:text-5xl lg:text-6xl">
+        {t.hero.title}
+      </h1>
+      <p class="mt-5 max-w-xl text-lg text-ink-muted">{t.hero.subtitle}</p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <Button href={wa} variant="whatsapp" size="lg" target="_blank" rel="noopener">
+          <Icon name="whatsapp" class="h-5 w-5" />
+          {t.actions.whatsapp}
+        </Button>
+        <Button href="#services" variant="secondary" size="lg">
+          {t.actions.viewServices}
+          <Icon name="arrow-right" class="h-4 w-4" />
+        </Button>
+      </div>
+
+      <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2">
+        {
+          t.hero.points.map((point) => (
+            <li class="flex items-center gap-2 text-sm font-medium text-ink-muted">
+              <Icon name="check" class="h-4 w-4 text-brand" />
+              {point}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="relative mx-auto grid w-full max-w-md gap-4">
+      <div class="rounded-brand bg-gradient-to-br from-brand to-brand-strong p-8 text-brand-foreground shadow-xl">
+        <Icon name="truck" class="h-10 w-10" />
+        <p class="mt-6 font-display text-2xl font-bold">{first}</p>
+        <p class="mt-2 text-sm opacity-90">{siteConfig.brand.name}</p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="rounded-brand border border-ink/10 bg-surface p-5 shadow-sm">
+          <Icon name="clock" class="h-7 w-7 text-brand" />
+          <p class="mt-4 text-sm font-semibold text-ink">{second}</p>
+        </div>
+        <div class="rounded-brand border border-ink/10 bg-surface p-5 shadow-sm">
+          <Icon name="sparkles" class="h-7 w-7 text-brand" />
+          <p class="mt-4 text-sm font-semibold text-ink">{third}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

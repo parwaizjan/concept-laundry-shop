@@ -1,0 +1,16 @@
+---
+import LegalPage from '../../components/LegalPage.astro';
+import type { Locale } from '../../../site.config';
+import { defaultLocale, enabledLocales, isLocale } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return enabledLocales()
+    .filter((locale) => locale !== defaultLocale)
+    .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const locale: Locale = isLocale(lang) ? lang : defaultLocale;
+---
+
+<LegalPage locale={locale} doc="terms" />
