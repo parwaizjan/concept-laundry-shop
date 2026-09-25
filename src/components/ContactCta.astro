@@ -21,11 +21,17 @@ const { t } = Astro.props;
       <p class="relative mx-auto mt-4 max-w-xl text-base opacity-90">{t.contact.subtitle}</p>
 
       <div class="relative mt-8 flex flex-wrap justify-center gap-3">
-        <Button href={whatsappLink(t.contact.whatsappMessage)} size="lg" class="bg-white text-ink hover:bg-white/90" target="_blank" rel="noopener">
+        <Button
+          href={whatsappLink(t.contact.whatsappMessage)}
+          size="lg"
+          variant="inverse"
+          target="_blank"
+          rel="noopener"
+        >
           <Icon name="whatsapp" class="h-5 w-5" />
           {t.actions.whatsapp}
         </Button>
-        <Button href={telLink()} size="lg" variant="secondary" class="border-white/40 bg-transparent text-brand-foreground hover:bg-white/10">
+        <Button href={telLink()} size="lg" variant="outline">
           <Icon name="phone" class="h-5 w-5" />
           {t.actions.call}
         </Button>

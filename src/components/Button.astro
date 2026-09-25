@@ -1,7 +1,7 @@
 ---
 interface Props {
   href: string;
-  variant?: 'primary' | 'secondary' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'inverse' | 'outline';
   size?: 'md' | 'lg';
   class?: string;
   target?: string;
@@ -29,6 +29,8 @@ const variants = {
   primary: 'bg-brand text-brand-foreground shadow-sm hover:bg-brand-strong',
   secondary: 'border border-ink/15 bg-surface text-ink hover:bg-surface-muted',
   ghost: 'text-ink hover:bg-surface-muted',
+  inverse: 'bg-white text-slate-900 shadow-sm hover:bg-white/90',
+  outline: 'border border-white/50 text-brand-foreground hover:bg-white/10',
 };
 ---
 

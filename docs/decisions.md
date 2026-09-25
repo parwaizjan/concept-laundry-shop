@@ -197,6 +197,15 @@ Append-only. Each entry: ID, date, decision, rationale, alternatives considered.
 - **Rationale:** Browsers were auto-translating the Sinhala page back into English, so users saw Sinhala flash then English while the toggle stayed on Sinhala. Since the site ships its own language switcher, machine-translating an already-chosen language is redundant and confusing. Leaving the default page translatable still lets visitors translate English if they wish.
 - **Alternatives:** Disable translation site-wide (rejected: blocks useful translation of the English page); do nothing (rejected: confusing UX).
 
+## D-028 — Iconography and on-brand button contrast
+
+- **Date:** 2026-09-22
+- **Decision:**
+  - Removed the four-point **"sparkles"** icon (it reads as the universal AI icon). The "Wash, iron & dry clean" hero card now uses `droplet`; the "Ironing only" service uses `steam`.
+  - Added `inverse` (white background, fixed dark text) and `outline` (transparent, white text/border) **Button variants** for use on the brand panel, replacing per-instance class overrides that produced unreliable Tailwind conflicts. The **"Call us"** button on the blue CTA is now white-on-blue.
+- **Rationale:** Avoid AI confusion and guarantee readable contrast on the brand panel in every theme.
+- **Note:** `inverse` uses a fixed `text-slate-900` (not `text-ink`) so it stays readable in the dark theme, where `ink` is near-white.
+
 ---
 
 ## Open questions

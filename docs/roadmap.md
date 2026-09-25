@@ -96,6 +96,7 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Green reserved for the floating WhatsApp button only.
 - [x] Hero feature cards: consistent padding, radius, and icon badges; decorative van graphic on the lead card.
 - [x] Real Google Maps embed (configurable) with a decorative fallback.
+- [x] Replaced the AI-looking sparkle icon and fixed on-brand button contrast (D-028).
 
 ## Backlog / ideas
 
