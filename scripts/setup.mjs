@@ -56,8 +56,10 @@ function parseCurrent(text) {
     'services',
     'howItWorks',
     'pricing',
+    'estimator',
     'testimonials',
     'faq',
+    'area',
     'location',
     'contact',
   ];
@@ -74,6 +76,7 @@ function parseCurrent(text) {
     email: grab(/email:\s*'([^']*)'/),
     address: grab(/address:\s*'([^']*)'/),
     mapUrl: grab(/mapUrl:\s*'([^']*)'/),
+    reviewsUrl: grab(/reviewsUrl:\s*'([^']*)'/),
     defaultLocale: grab(/default:\s*'([^']*)'/, 'en'),
     enabled,
     theme: grab(/theme:\s*'([^']*)'/, 'fresh-blue'),
@@ -123,8 +126,10 @@ export interface SiteSection {
   services: boolean;
   howItWorks: boolean;
   pricing: boolean;
+  estimator: boolean;
   testimonials: boolean;
   faq: boolean;
+  area: boolean;
   location: boolean;
   contact: boolean;
 }
@@ -144,6 +149,7 @@ export interface SiteConfig {
     email: string;
     address: string;
     mapUrl: string;
+    reviewsUrl: string;
   };
   locale: {
     default: Locale;
@@ -170,6 +176,7 @@ const siteConfig: SiteConfig = {
     email: '${next.email}',
     address: '${next.address}',
     mapUrl: '${next.mapUrl}',
+    reviewsUrl: '${next.reviewsUrl}',
   },
   locale: {
     default: '${next.defaultLocale}',
@@ -208,6 +215,7 @@ async function main() {
   const email = await ask('Email', existing.email);
   const address = await ask('Address', existing.address);
   const mapUrl = await ask('Google Maps URL', existing.mapUrl);
+  const reviewsUrl = await ask('Google reviews URL', existing.reviewsUrl || mapUrl);
 
   const defaultLocale = pick(
     LOCALES,
@@ -242,6 +250,7 @@ async function main() {
     email,
     address,
     mapUrl,
+    reviewsUrl,
     defaultLocale,
     enabled,
     theme,

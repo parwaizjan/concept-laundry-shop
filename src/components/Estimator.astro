@@ -1,0 +1,174 @@
+---
+import siteConfig from '../../site.config';
+import type { Messages } from '../i18n/utils';
+import { whatsappLink } from '../i18n/utils';
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+
+interface Props {
+  t: Messages;
+}
+
+const { t } = Astro.props;
+const number = siteConfig.contact.whatsapp.replace(/[^0-9]/g, '');
+const currency = siteConfig.currencySymbol;
+const fallback = whatsappLink(t.contact.whatsappMessage);
+---
+
+<section
+  id="estimator"
+  class="section scroll-mt-20 bg-surface-muted"
+  data-estimator
+  data-wa-number={number}
+  data-currency={currency}
+  data-greeting={t.estimator.whatsappIntro}
+  data-total-label={t.estimator.total}
+  data-empty={t.estimator.empty}
+  data-fallback-message={t.contact.whatsappMessage}
+>
+  <div class="container-page">
+    <SectionHeading title={t.estimator.title} subtitle={t.estimator.subtitle} align="center" />
+
+    <div class="mx-auto mt-12 max-w-3xl overflow-hidden rounded-brand border border-ink/10 bg-surface">
+      <ul class="divide-y divide-ink/10">
+        {
+          t.estimator.items.map((item) => (
+            <li
+              class="flex items-center justify-between gap-3 px-4 py-4 sm:px-6"
+              data-row
+              data-name={item.name}
+              data-price={item.price}
+              data-unit={item.unit}
+            >
+              <div class="min-w-0">
+                <p class="truncate text-sm font-semibold text-ink">{item.name}</p>
+                <p class="text-xs text-ink-muted">
+                  {currency} {item.price} · {t.estimator.units[item.unit as 'kg' | 'item']}
+                </p>
+              </div>
+              <div class="flex shrink-0 items-center gap-1.5">
+                <button
+                  type="button"
+                  data-dec
+                  aria-label={t.estimator.decrease}
+                  class="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 text-lg font-semibold text-ink transition hover:bg-surface-muted"
+                >
+                  −
+                </button>
+                <input
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  step={item.unit === 'kg' ? '0.5' : '1'}
+                  value="0"
+                  data-qty
+                  aria-label={item.name}
+                  class="h-9 w-12 rounded-lg border border-ink/15 bg-surface text-center text-sm text-ink"
+                />
+                <button
+                  type="button"
+                  data-inc
+                  aria-label={t.estimator.increase}
+                  class="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 text-lg font-semibold text-ink transition hover:bg-surface-muted"
+                >
+                  +
+                </button>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div
+        class="flex flex-col gap-4 border-t border-ink/10 bg-surface-muted/60 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
+      >
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wide text-ink-muted">
+            {t.estimator.total}
+          </p>
+          <p class="font-display text-2xl font-bold text-ink" data-total aria-live="polite">
+            {t.estimator.empty}
+          </p>
+        </div>
+        <a
+          href={fallback}
+          data-wa
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#1eb457]"
+        >
+          <Icon name="whatsapp" class="h-5 w-5" />
+          {t.estimator.cta}
+        </a>
+      </div>
+    </div>
+
+    <p class="mx-auto mt-4 max-w-3xl text-xs text-ink-muted">{t.estimator.note}</p>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-estimator]');
+
+  if (root) {
+    const number = root.dataset.waNumber ?? '';
+    const currency = root.dataset.currency ?? '';
+    const greeting = root.dataset.greeting ?? '';
+    const totalLabel = root.dataset.totalLabel ?? '';
+    const emptyLabel = root.dataset.empty ?? '';
+    const fallbackMessage = root.dataset.fallbackMessage ?? '';
+
+    const rows = Array.from(root.querySelectorAll<HTMLElement>('[data-row]'));
+    const totalEl = root.querySelector<HTMLElement>('[data-total]');
+    const whatsapp = root.querySelector<HTMLAnchorElement>('[data-wa]');
+
+    const formatNumber = (value: number) =>
+      Number.isInteger(value) ? String(value) : value.toFixed(1).replace(/\.0$/, '');
+    const money = (value: number) => `${currency} ${value.toLocaleString('en-US')}`;
+
+    const compute = () => {
+      let total = 0;
+      const lines: string[] = [];
+
+      for (const row of rows) {
+        const input = row.querySelector<HTMLInputElement>('[data-qty]');
+        if (!input) continue;
+        const quantity = Math.max(0, Number.parseFloat(input.value) || 0);
+        if (quantity <= 0) continue;
+        const price = Number.parseFloat(row.dataset.price ?? '0') || 0;
+        const line = quantity * price;
+        total += line;
+        lines.push(`${formatNumber(quantity)} × ${row.dataset.name ?? ''} — ${money(line)}`);
+      }
+
+      if (totalEl) totalEl.textContent = total > 0 ? money(total) : emptyLabel;
+      if (!whatsapp) return;
+
+      const message =
+        total > 0
+          ? `${greeting}\n${lines.join('\n')}\n\n${totalLabel}: ${money(total)}`
+          : fallbackMessage;
+      whatsapp.href = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+    };
+
+    root.addEventListener('click', (event) => {
+      const button = (event.target as Element | null)?.closest<HTMLElement>('[data-inc], [data-dec]');
+      if (!button) return;
+      const input = button.closest<HTMLElement>('[data-row]')?.querySelector<HTMLInputElement>('[data-qty]');
+      if (!input) return;
+      const step = Number.parseFloat(input.step) || 1;
+      const current = Number.parseFloat(input.value) || 0;
+      const next = button.hasAttribute('data-inc')
+        ? current + step
+        : Math.max(0, current - step);
+      input.value = String(next);
+      compute();
+    });
+
+    for (const row of rows) {
+      row.querySelector<HTMLInputElement>('[data-qty]')?.addEventListener('input', compute);
+    }
+
+    compute();
+  }
+</script>

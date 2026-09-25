@@ -8,8 +8,11 @@
     "services": "Services",
     "howItWorks": "How it works",
     "pricing": "Pricing",
+    "estimator": "Estimate",
     "reviews": "Reviews",
     "faq": "FAQ",
+    "area": "Service area",
+    "care": "Care guide",
     "contact": "Contact"
   },
   "actions": {
@@ -29,7 +32,8 @@
       "Free pickup & delivery",
       "Ready in 24 hours",
       "Wash, iron & dry clean"
-    ]
+    ],
+    "expressBadge": "Same-day & 24-hour express available"
   },
   "trust": {
     "items": [
@@ -125,8 +129,88 @@
       }
     ]
   },
+  "estimator": {
+    "title": "Estimate your order",
+    "subtitle": "Add your items to see an instant estimate, then send it to us on WhatsApp.",
+    "quantity": "Qty",
+    "decrease": "Decrease",
+    "increase": "Increase",
+    "units": { "kg": "per kg", "item": "per item" },
+    "total": "Estimated total",
+    "empty": "Add items above to see your estimate.",
+    "note": "This is an estimate. The final price is confirmed when we collect your laundry.",
+    "cta": "Send estimate on WhatsApp",
+    "whatsappIntro": "Hi! Here is my laundry estimate:",
+    "items": [
+      { "id": "wash-fold", "name": "Wash & Fold", "unit": "kg", "price": 250 },
+      { "id": "wash-iron", "name": "Wash & Iron", "unit": "kg", "price": 350 },
+      { "id": "express", "name": "Express 24-hour", "unit": "kg", "price": 450 },
+      { "id": "dry-clean", "name": "Dry Cleaning", "unit": "item", "price": 800 },
+      { "id": "iron-only", "name": "Ironing Only", "unit": "item", "price": 100 },
+      { "id": "shirt", "name": "Shirt / Blouse", "unit": "item", "price": 150 },
+      { "id": "suit", "name": "Suit (2-piece)", "unit": "item", "price": 800 },
+      { "id": "saree", "name": "Saree", "unit": "item", "price": 900 }
+    ]
+  },
+  "area": {
+    "title": "Do we deliver to you?",
+    "subtitle": "We pick up and deliver across these Nugegoda and Colombo areas.",
+    "coveredLabel": "We deliver here",
+    "lookupLabel": "Check your area",
+    "lookupPlaceholder": "Type your area…",
+    "covered": "Great — {area} is in our delivery zone.",
+    "notCovered": "We're not sure about {area} yet. Message us and we'll confirm.",
+    "empty": "Enter your area to check.",
+    "fallback": "Not sure? Send us a message — we'll confirm your area.",
+    "places": [
+      "Nugegoda",
+      "Dehiwala",
+      "Kohuwala",
+      "Nawala",
+      "Havelock Town",
+      "Mirihana",
+      "Delkanda",
+      "Gangodawila",
+      "Pepiliyana",
+      "Boralesgamuwa"
+    ]
+  },
+  "care": {
+    "title": "Laundry care guide",
+    "subtitle": "Quick, practical tips to keep your clothes looking new.",
+    "intro": "From rainy-season mud to office coffee spills, here is how to treat common stains before they set.",
+    "tipsTitle": "Common stains, solved",
+    "tips": [
+      {
+        "title": "Act fast, blot — don't rub",
+        "body": "Blot the stain with a clean cloth from the outside in. Rubbing pushes it deeper into the fabric."
+      },
+      {
+        "title": "Grease and oil",
+        "body": "Sprinkle a little cornflour or talcum on the stain to absorb the oil, then brush it off before washing."
+      },
+      {
+        "title": "Coffee and tea",
+        "body": "Rinse with cool water and dab with a mild detergent. Hot water can set the stain, so keep it cool."
+      },
+      {
+        "title": "Mud and rainy-season splashes",
+        "body": "Let the mud dry completely, brush off what you can, then wash as normal with a good detergent."
+      },
+      {
+        "title": "Ink marks",
+        "body": "Dab with a little rubbing alcohol on a cotton bud, working from the edge of the mark inwards."
+      },
+      {
+        "title": "Silk, sarees and delicate fabrics",
+        "body": "Don't risk it — send these to us for professional dry cleaning and we'll handle them safely."
+      }
+    ]
+  },
   "testimonials": {
     "title": "What customers say",
+    "googleBadge": "4.9 on Google",
+    "googleCta": "Read Google reviews",
     "items": [
       {
         "quote": "They collect from my apartment and everything comes back crisp. I never touch an iron now.",

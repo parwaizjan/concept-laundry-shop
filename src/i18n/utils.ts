@@ -56,8 +56,8 @@ export function telLink(): string {
 
 export const navSections = [
   { id: 'services', key: 'services', configKey: 'services' },
-  { id: 'how-it-works', key: 'howItWorks', configKey: 'howItWorks' },
   { id: 'pricing', key: 'pricing', configKey: 'pricing' },
+  { id: 'estimator', key: 'estimator', configKey: 'estimator' },
   { id: 'reviews', key: 'reviews', configKey: 'testimonials' },
   { id: 'faq', key: 'faq', configKey: 'faq' },
   { id: 'contact', key: 'contact', configKey: 'contact' },

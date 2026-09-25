@@ -12,6 +12,7 @@ All user-facing copy lives in **three parallel locale catalogs**: `src/i18n/en.j
 | WhatsApp number, phone, email, address, map link | `site.config.ts` → `contact` |
 | Currency, default locale, enabled locales | `site.config.ts` → `locale`, `currency` |
 | Search-engine indexing (off for the concept) | `site.config.ts` → `indexable` |
+| Google reviews destination | `site.config.ts` → `contact.reviewsUrl` |
 | Theme preset | `src/styles/theme.css` (or `pnpm setup`) |
 | Section visibility | `site.config.ts` → `sections` |
 | Page title + meta description | `en.json`/`si.json`/`ta.json` → `meta` |
@@ -21,6 +22,9 @@ All user-facing copy lives in **three parallel locale catalogs**: `src/i18n/en.j
 | Services list (name, description, price, unit) | `…json` → `services.items` |
 | How-it-works steps | `…json` → `howItWorks.steps` |
 | Pricing groups and rows | `…json` → `pricing.groups` |
+| Price estimator items, units, labels | `…json` → `estimator` |
+| Service-area places and messages | `…json` → `area` |
+| Care guide tips | `…json` → `care` |
 | Testimonials | `…json` → `testimonials.items` |
 | FAQ | `…json` → `faq.items` |
 | Location copy + opening hours | `…json` → `location` |

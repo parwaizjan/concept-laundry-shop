@@ -9,8 +9,10 @@ import TrustBar from './TrustBar.astro';
 import Services from './Services.astro';
 import HowItWorks from './HowItWorks.astro';
 import Pricing from './Pricing.astro';
+import Estimator from './Estimator.astro';
 import Testimonials from './Testimonials.astro';
 import Faq from './Faq.astro';
+import ServiceArea from './ServiceArea.astro';
 import LocationMap from './LocationMap.astro';
 import ContactCta from './ContactCta.astro';
 import Footer from './Footer.astro';
@@ -35,8 +37,10 @@ const s = siteConfig.sections;
     {s.services && <Services t={t} />}
     {s.howItWorks && <HowItWorks t={t} />}
     {s.pricing && <Pricing t={t} />}
+    {s.estimator && <Estimator t={t} />}
     {s.testimonials && <Testimonials t={t} />}
     {s.faq && <Faq t={t} />}
+    {s.area && <ServiceArea t={t} />}
     {s.location && <LocationMap t={t} />}
     {s.contact && <ContactCta t={t} />}
   </main>

@@ -14,6 +14,7 @@ const { locale, t } = Astro.props;
 const { brand, contact } = siteConfig;
 const year = new Date().getFullYear();
 const homeHref = localizedPath('', locale);
+const careHref = localizedPath('care', locale);
 const visibleNav = navSections.filter((s) => siteConfig.sections[s.configKey]);
 ---
 
@@ -42,6 +43,18 @@ const visibleNav = navSections.filter((s) => siteConfig.sections[s.configKey]);
             </li>
           ))
         }
+        {siteConfig.sections.area && (
+          <li>
+            <a href="#area" class="text-sm text-ink-muted transition hover:text-ink">
+              {t.nav.area}
+            </a>
+          </li>
+        )}
+        <li>
+          <a href={careHref} class="text-sm text-ink-muted transition hover:text-ink">
+            {t.nav.care}
+          </a>
+        </li>
       </ul>
     </nav>
 

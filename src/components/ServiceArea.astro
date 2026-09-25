@@ -1,0 +1,90 @@
+---
+import type { Messages } from '../i18n/utils';
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+
+interface Props {
+  t: Messages;
+}
+
+const { t } = Astro.props;
+---
+
+<section
+  id="area"
+  class="section scroll-mt-20"
+  data-area
+  data-covered={t.area.covered}
+  data-not-covered={t.area.notCovered}
+  data-empty={t.area.empty}
+>
+  <div class="container-page">
+    <SectionHeading title={t.area.title} subtitle={t.area.subtitle} align="center" />
+
+    <div class="mx-auto mt-12 grid max-w-4xl gap-6 lg:grid-cols-2">
+      <div class="rounded-brand border border-ink/10 bg-surface p-6 sm:p-7">
+        <h3 class="font-display text-lg font-bold text-ink">{t.area.coveredLabel}</h3>
+        <ul class="mt-5 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
+          {
+            t.area.places.map((place) => (
+              <li class="flex items-center gap-2 text-sm text-ink-muted" data-place={place}>
+                <Icon name="check" class="h-4 w-4 shrink-0 text-brand" />
+                <span>{place}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="rounded-brand border border-ink/10 bg-surface p-6 sm:p-7">
+        <h3 class="font-display text-lg font-bold text-ink">{t.area.lookupLabel}</h3>
+        <label for="area-input" class="sr-only">{t.area.lookupLabel}</label>
+        <input
+          id="area-input"
+          data-area-input
+          list="area-options"
+          type="text"
+          autocomplete="off"
+          placeholder={t.area.lookupPlaceholder}
+          class="mt-5 w-full rounded-xl border border-ink/15 bg-surface px-4 py-3 text-sm text-ink"
+        />
+        <datalist id="area-options">
+          {t.area.places.map((place) => <option value={place}>{place}</option>)}
+        </datalist>
+        <p class="mt-4 min-h-10 text-sm font-medium text-ink" data-area-result aria-live="polite">
+          {t.area.empty}
+        </p>
+        <p class="mt-4 rounded-xl bg-surface-muted p-3 text-xs text-ink-muted">{t.area.fallback}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const section = document.querySelector<HTMLElement>('[data-area]');
+  const input = document.querySelector<HTMLInputElement>('[data-area-input]');
+  const result = document.querySelector<HTMLElement>('[data-area-result]');
+
+  if (section && input && result) {
+    const places = Array.from(section.querySelectorAll<HTMLElement>('[data-place]')).map((element) =>
+      (element.dataset.place ?? '').toLowerCase(),
+    );
+    const covered = section.dataset.covered ?? '';
+    const notCovered = section.dataset.notCovered ?? '';
+    const empty = section.dataset.empty ?? '';
+
+    const update = () => {
+      const value = input.value.trim();
+      if (!value) {
+        result.textContent = empty;
+        return;
+      }
+      const query = value.toLowerCase();
+      const hit = places.some((place) => place.includes(query) || query.includes(place));
+      result.textContent = (hit ? covered : notCovered).replace('{area}', value);
+    };
+
+    input.addEventListener('input', update);
+    update();
+  }
+</script>

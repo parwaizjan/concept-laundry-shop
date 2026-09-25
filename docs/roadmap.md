@@ -81,6 +81,13 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Mobile-first navigation: CSS-first mobile menu + progressive-enhancement close script (D-022).
 - [x] Tuned tap targets, language toggle, FAB clearance, pricing note alignment.
 
+## Phase 10 — Pitch enhancements ✅
+
+- [x] Price estimator with live total + itemised WhatsApp breakdown (D-023).
+- [x] Localized care guide pages (`/care`, `/si/care`, `/ta/care`).
+- [x] Service-area checklist + "is my area covered?" lookup.
+- [x] Static Google reviews badge + express/24-hour hero badge.
+
 ## Backlog / ideas
 
 - Optional contact form + Cloudflare email adapter.

@@ -152,6 +152,18 @@ Append-only. Each entry: ID, date, decision, rationale, alternatives considered.
 - **Rationale:** Full navigation without shipping a framework; the FAB and menu keep key actions thumb-reachable.
 - **Alternatives:** A client-side framework menu (rejected: heavy); no mobile nav (rejected: navigation gap).
 
+## D-023 — Pitch-enhancement features
+
+- **Date:** 2026-09-22
+- **Decision:** Add four value features to the concept, all mobile-first and fully localized:
+  1. **Price estimator** (`Estimator.astro`, `#estimator`): per-item quantity steppers, a live total, and a WhatsApp link pre-filled with the itemised breakdown. Built as a small vanilla-TS island and degrades gracefully (generic WhatsApp message without JS).
+  2. **Care guide page** (`/care`, `/si/care`, `/ta/care`): stain/care tips on a separate localized page, linked from the desktop header, the mobile menu, and the footer.
+  3. **Service area** (`ServiceArea.astro`, `#area`): a covered-areas checklist plus an "is my area covered?" lookup with a live covered / not-covered message.
+  4. **Trust**: a static "4.9 on Google" badge linking to `contact.reviewsUrl`, and a prominent same-day / 24-hour express badge in the hero.
+- **Rationale:** Concrete, memorable features sharpen the pitch and show owners what customers gain.
+- **Notes:** Live Google reviews would require a billed Google Places API key — deliberately avoided. New section toggles `estimator` and `area` were added to `site.config.ts`.
+- **Alternatives:** Static pricing only (rejected: estimator is the standout); live reviews (deferred to client projects where an API key is acceptable).
+
 ---
 
 ## Open questions
