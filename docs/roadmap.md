@@ -84,7 +84,7 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 ## Phase 10 — Pitch enhancements ✅
 
 - [x] Price estimator with live total + itemised WhatsApp breakdown (D-023).
-- [x] Localized care guide pages (`/care`, `/si/care`, `/ta/care`).
+- [x] Care guide as a homepage section (`#care`), localized.
 - [x] Service-area checklist + "is my area covered?" lookup.
 - [x] Static Google reviews badge + express/24-hour hero badge.
 

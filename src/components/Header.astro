@@ -15,7 +15,6 @@ interface Props {
 
 const { locale, t, pathname } = Astro.props;
 const homeHref = localizedPath('', locale);
-const careHref = localizedPath('care', locale);
 const visibleNav = navSections.filter((s) => siteConfig.sections[s.configKey]);
 const wa = whatsappLink(t.contact.whatsappMessage);
 ---
@@ -46,9 +45,6 @@ const wa = whatsappLink(t.contact.whatsappMessage);
           </a>
         ))
       }
-      <a href={careHref} class="text-sm font-medium text-ink-muted transition hover:text-ink">
-        {t.nav.care}
-      </a>
     </nav>
 
     <div class="flex shrink-0 items-center gap-1.5">
@@ -92,12 +88,6 @@ const wa = whatsappLink(t.contact.whatsappMessage);
                 {t.nav.area}
               </a>
             )}
-            <a
-              href={careHref}
-              class="rounded-xl px-3 py-3 text-sm font-medium text-ink-muted transition hover:bg-surface-muted hover:text-ink"
-            >
-              {t.nav.care}
-            </a>
           </nav>
 
           <div class="mt-2 flex flex-col gap-2 border-t border-ink/10 pt-3">

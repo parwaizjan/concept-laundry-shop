@@ -24,6 +24,7 @@ export interface SiteSection {
   estimator: boolean;
   testimonials: boolean;
   faq: boolean;
+  care: boolean;
   area: boolean;
   location: boolean;
   contact: boolean;
@@ -89,6 +90,7 @@ const siteConfig: SiteConfig = {
     estimator: true,
     testimonials: true,
     faq: true,
+    care: true,
     area: true,
     location: true,
     contact: true,

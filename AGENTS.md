@@ -39,7 +39,7 @@ A reusable **Astro** website template for **laundry shops**, built initially as 
 - Email (when enabled): **Cloudflare Email Sending → verified destination address** (free on all plans). Escalate to Workers Paid for arbitrary recipients / customer auto-replies.
 - Infrastructure: **central agency Cloudflare account**; **Cloudflare Workers Builds** (Git integration) for push-to-deploy.
 - Theme presets: **5–6** (color + font tokens).
-- Pitch features: **price estimator**, **care guide page**, **service-area lookup**, **Google reviews + express badges**.
+- Pitch features: **price estimator**, **care guide section**, **service-area lookup**, **Google reviews + express badges**.
 - Analytics: **none** for the concept.
 - Page structure: **single-page** (anchored sections) **+ legal pages**.
 - Design vibe: **clean & fresh**.
@@ -66,15 +66,15 @@ concept-laundry-shop/
    ├─ styles/global.css      # tailwind + token mapping
    ├─ styles/theme.css       # active theme preset import (rewritten by setup)
    ├─ styles/themes/*.css    # 6 presets (tokens)
-   ├─ components/            # Home, LegalPage, CarePage, Header, Footer, LangToggle,
+   ├─ components/            # Home, LegalPage, Header, Footer, LangToggle,
    │                         # WhatsAppFab, Button, Icon, SectionHeading, Hero, TrustBar,
    │                         # Services, HowItWorks, Pricing, Estimator, Testimonials,
-   │                         # Faq, ServiceArea, LocationMap, ContactCta
+   │                         # Faq, Care, ServiceArea, LocationMap, ContactCta
    ├─ layouts/BaseLayout.astro
    └─ pages/
       ├─ index.astro                 # default locale at /
       ├─ [lang]/index.astro          # other locales (/si/, /ta/)
-      ├─ privacy.astro / terms.astro / care.astro # + [lang]/ variants
+      ├─ privacy.astro / terms.astro # + [lang]/ variants
       ├─ 404.astro
       ├─ robots.txt.ts               # generated (absolute sitemap URL)
       └─ api/notify.ts               # optional email adapter (not built yet; prerender = false)

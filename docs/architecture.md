@@ -43,12 +43,11 @@ concept-laundry-shop/
    ├─ components/
    │  ├─ Home.astro          # composes the one-page sections
    │  ├─ LegalPage.astro     # privacy / terms layout
-   │  ├─ CarePage.astro      # /care layout
    │  ├─ Header.astro, Footer.astro, WhatsAppFab.astro, LangToggle.astro
    │  ├─ Button.astro, Icon.astro, SectionHeading.astro
    │  ├─ Hero.astro, TrustBar.astro, Services.astro, HowItWorks.astro
    │  └─ Pricing.astro, Estimator.astro, Testimonials.astro, Faq.astro,
-   │     ServiceArea.astro, LocationMap.astro, ContactCta.astro
+   │     Care.astro, ServiceArea.astro, LocationMap.astro, ContactCta.astro
    ├─ i18n/
    │  ├─ en.json, si.json, ta.json   # UI strings + all marketing copy
    │  └─ utils.ts                    # t(), localePath(), whatsappLink(), navSections
@@ -56,8 +55,8 @@ concept-laundry-shop/
    ├─ pages/
    │  ├─ index.astro                 # default locale at /
    │  ├─ [lang]/index.astro          # other locales (/si/, /ta/)
-   │  ├─ privacy.astro, terms.astro, care.astro   # default locale
-   │  ├─ [lang]/privacy.astro, [lang]/terms.astro, [lang]/care.astro
+   │  ├─ privacy.astro, terms.astro   # default locale
+   │  ├─ [lang]/privacy.astro, [lang]/terms.astro
    │  ├─ 404.astro
    │  └─ robots.txt.ts
    └─ styles/
@@ -105,7 +104,7 @@ Components read from here and from `src/i18n` — never hardcode brand, phone, o
 
 ## Components
 
-`Home` composes the sections in order, gated by `siteConfig.sections`: `Hero → TrustBar → Services → HowItWorks → Pricing → Estimator → Testimonials → Faq → ServiceArea → LocationMap → ContactCta`. `Header` (with `LangToggle`) and `Footer` wrap the page; `WhatsAppFab` floats on all pages. `CarePage` renders the standalone `/care` pages.
+`Home` composes the sections in order, gated by `siteConfig.sections`: `Hero → TrustBar → Services → HowItWorks → Pricing → Estimator → Testimonials → Faq → Care → ServiceArea → LocationMap → ContactCta`. `Header` (with `LangToggle`) and `Footer` wrap the page; `WhatsAppFab` floats on all pages.
 
 Guidelines: semantic HTML, accessible labels and focus states, mobile-first, no hardcoded brand values, no client-side framework islands. The only shipped JavaScript is a few tiny inline scripts: closing the mobile menu (`<details>`), computing the price estimator total/WhatsApp breakdown, and the service-area lookup. Each degrades gracefully without JS.
 

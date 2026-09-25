@@ -12,6 +12,7 @@ import Pricing from './Pricing.astro';
 import Estimator from './Estimator.astro';
 import Testimonials from './Testimonials.astro';
 import Faq from './Faq.astro';
+import Care from './Care.astro';
 import ServiceArea from './ServiceArea.astro';
 import LocationMap from './LocationMap.astro';
 import ContactCta from './ContactCta.astro';
@@ -40,6 +41,7 @@ const s = siteConfig.sections;
     {s.estimator && <Estimator t={t} />}
     {s.testimonials && <Testimonials t={t} />}
     {s.faq && <Faq t={t} />}
+    {s.care && <Care t={t} />}
     {s.area && <ServiceArea t={t} />}
     {s.location && <LocationMap t={t} />}
     {s.contact && <ContactCta t={t} />}

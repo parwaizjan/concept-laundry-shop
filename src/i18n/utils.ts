@@ -60,6 +60,7 @@ export const navSections = [
   { id: 'estimator', key: 'estimator', configKey: 'estimator' },
   { id: 'reviews', key: 'reviews', configKey: 'testimonials' },
   { id: 'faq', key: 'faq', configKey: 'faq' },
+  { id: 'care', key: 'care', configKey: 'care' },
   { id: 'contact', key: 'contact', configKey: 'contact' },
 ] as const satisfies ReadonlyArray<{
   id: string;

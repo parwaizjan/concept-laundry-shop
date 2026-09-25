@@ -59,6 +59,7 @@ function parseCurrent(text) {
     'estimator',
     'testimonials',
     'faq',
+    'care',
     'area',
     'location',
     'contact',
@@ -129,6 +130,7 @@ export interface SiteSection {
   estimator: boolean;
   testimonials: boolean;
   faq: boolean;
+  care: boolean;
   area: boolean;
   location: boolean;
   contact: boolean;
