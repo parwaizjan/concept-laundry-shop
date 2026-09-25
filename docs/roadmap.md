@@ -95,6 +95,7 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Hero: removed the duplicate checkmark list; primary CTA uses the brand colour.
 - [x] Green reserved for the floating WhatsApp button only.
 - [x] Hero feature cards: consistent padding, radius, and icon badges; decorative van graphic on the lead card.
+- [x] Real Google Maps embed (configurable) with a decorative fallback.
 
 ## Backlog / ideas
 

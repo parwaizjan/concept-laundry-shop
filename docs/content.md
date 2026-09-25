@@ -9,7 +9,8 @@ All user-facing copy lives in **three parallel locale catalogs**: `src/i18n/en.j
 | I want to change… | Edit this |
 |---|---|
 | Brand name, tagline, logo, OG image | `site.config.ts` → `brand` |
-| WhatsApp number, phone, email, address, map link | `site.config.ts` → `contact` |
+| WhatsApp number, phone, email, address | `site.config.ts` → `contact` |
+| Google Maps link + embed URL | `site.config.ts` → `contact.mapUrl`, `contact.mapEmbedUrl` |
 | Currency, default locale, enabled locales | `site.config.ts` → `locale`, `currency` |
 | Search-engine indexing (off for the concept) | `site.config.ts` → `indexable` |
 | Google reviews destination | `site.config.ts` → `contact.reviewsUrl` |

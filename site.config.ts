@@ -45,6 +45,7 @@ export interface SiteConfig {
     email: string;
     address: string;
     mapUrl: string;
+    mapEmbedUrl: string;
     reviewsUrl: string;
   };
   locale: {
@@ -72,6 +73,7 @@ const siteConfig: SiteConfig = {
     email: 'hello@freshfold.lk',
     address: '123 Temple Road, Nugegoda, Colombo 10250, Sri Lanka',
     mapUrl: 'https://www.google.com/maps?q=Nugegoda,+Colombo',
+    mapEmbedUrl: 'https://www.google.com/maps?q=Nugegoda,+Colombo&z=14&output=embed',
     reviewsUrl: 'https://www.google.com/maps?q=Nugegoda,+Colombo',
   },
   locale: {

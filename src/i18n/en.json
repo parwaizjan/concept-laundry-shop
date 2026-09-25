@@ -257,6 +257,7 @@
   "location": {
     "title": "Where to find us",
     "subtitle": "Serving Nugegoda and nearby Colombo suburbs.",
+    "mapTitle": "Map of our location",
     "addressLabel": "Address",
     "hoursLabel": "Opening hours",
     "hours": [

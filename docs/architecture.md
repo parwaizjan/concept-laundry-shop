@@ -74,7 +74,7 @@ Single source of truth per client, rewritten by `pnpm setup`:
   url,                                  // site origin (sitemap, canonical, OG)
   indexable,                            // false = noindex + robots Disallow (concept)
   brand:   { name, tagline, logo, ogImage },
-  contact: { whatsapp, phone, email, address, mapUrl, reviewsUrl },
+  contact: { whatsapp, phone, email, address, mapUrl, mapEmbedUrl, reviewsUrl },
   locale:  { default: 'en', enabled: ['en','si','ta'] },
   theme:   'fresh-blue',                // one of the theme presets
   currency, currencySymbol,

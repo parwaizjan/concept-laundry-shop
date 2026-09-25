@@ -176,6 +176,13 @@ Append-only. Each entry: ID, date, decision, rationale, alternatives considered.
 - **Rationale:** Fewer competing CTAs, clearer hierarchy, less visual redundancy, and a single, unmistakable green action.
 - **Alternatives:** Keep all sections in the header (rejected: clutter); green on every WhatsApp CTA (rejected: competing focus).
 
+## D-025 — Embedded Google Map (configurable)
+
+- **Date:** 2026-09-22
+- **Decision:** Replace the decorative map placeholder with a real **Google Maps embed** driven by `contact.mapEmbedUrl` (keyless `…&output=embed`). The old decorative graphic stays underneath as a graceful fallback and shows if `mapEmbedUrl` is blank or the iframe fails to load.
+- **Rationale:** A real map demonstrates the value and shows exactly where the map will sit, while remaining a per-client config value.
+- **Notes:** The embed lazy-loads third-party content from Google (no API key needed). Client sites can set a place-specific embed URL or clear the field to hide the map.
+
 ---
 
 ## Open questions

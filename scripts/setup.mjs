@@ -77,6 +77,7 @@ function parseCurrent(text) {
     email: grab(/email:\s*'([^']*)'/),
     address: grab(/address:\s*'([^']*)'/),
     mapUrl: grab(/mapUrl:\s*'([^']*)'/),
+    mapEmbedUrl: grab(/mapEmbedUrl:\s*'([^']*)'/),
     reviewsUrl: grab(/reviewsUrl:\s*'([^']*)'/),
     defaultLocale: grab(/default:\s*'([^']*)'/, 'en'),
     enabled,
@@ -151,6 +152,7 @@ export interface SiteConfig {
     email: string;
     address: string;
     mapUrl: string;
+    mapEmbedUrl: string;
     reviewsUrl: string;
   };
   locale: {
@@ -178,6 +180,7 @@ const siteConfig: SiteConfig = {
     email: '${next.email}',
     address: '${next.address}',
     mapUrl: '${next.mapUrl}',
+    mapEmbedUrl: '${next.mapEmbedUrl}',
     reviewsUrl: '${next.reviewsUrl}',
   },
   locale: {
@@ -217,6 +220,10 @@ async function main() {
   const email = await ask('Email', existing.email);
   const address = await ask('Address', existing.address);
   const mapUrl = await ask('Google Maps URL', existing.mapUrl);
+  const mapEmbedUrl = await ask(
+    'Google Maps embed URL (…&output=embed)',
+    existing.mapEmbedUrl,
+  );
   const reviewsUrl = await ask('Google reviews URL', existing.reviewsUrl || mapUrl);
 
   const defaultLocale = pick(
@@ -252,6 +259,7 @@ async function main() {
     email,
     address,
     mapUrl,
+    mapEmbedUrl,
     reviewsUrl,
     defaultLocale,
     enabled,
