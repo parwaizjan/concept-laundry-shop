@@ -59,7 +59,7 @@ export interface SiteConfig {
 }
 
 const siteConfig: SiteConfig = {
-  url: 'https://concept-laundry-shop.parwaiz-jan-ij.workers.dev',
+  url: 'https://demo-laundry.zuvo.lk',
   indexable: false,
   brand: {
     name: 'FreshFold Laundry',

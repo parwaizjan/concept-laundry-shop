@@ -65,7 +65,7 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Connect it to Workers Builds (build `npx astro build`, deploy `npx wrangler deploy`).
 - [x] Deploy and verify on desktop + mobile (375px).
 - [x] Set `site.config.ts → url` to the live URL.
-- [x] Demo URL: **https://concept-laundry-shop.parwaiz-jan-ij.workers.dev/**
+- [x] Demo URL: **https://demo-laundry.zuvo.lk/** (custom domain; `workers_dev: false`).
 - [x] Marked the repo as a GitHub **template** for the per-client clone flow (D-001).
 
 ## Post-launch polish

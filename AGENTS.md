@@ -8,7 +8,7 @@ A reusable **Astro** website template for **laundry shops**, built initially as 
 
 ## Current status
 
-**Deployed (Phase 8 done).** The Astro site builds (`pnpm build`), type-checks (`pnpm check`), and passes `wrangler deploy --dry-run`. Private GitHub **template** repo: `github.com/parwaizjan/concept-laundry-shop` (branch `main`). Live demo: **https://concept-laundry-shop.parwaiz-jan-ij.workers.dev/** (built and deployed by Cloudflare Workers Builds on push to `main`).
+**Deployed (Phase 8 done).** The Astro site builds (`pnpm build`), type-checks (`pnpm check`), and passes `wrangler deploy --dry-run`. Private GitHub **template** repo: `github.com/parwaizjan/concept-laundry-shop` (branch `main`). Live demo: **https://demo-laundry.zuvo.lk/** (custom domain on the Worker `concept-laundry-shop`; `workers_dev: false` disables the `*.workers.dev` URL). Built and deployed by Cloudflare Workers Builds on push to `main`.
 
 ## Read these first (source of truth)
 

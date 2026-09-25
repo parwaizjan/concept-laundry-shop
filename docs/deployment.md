@@ -32,6 +32,7 @@ The Cloudflare adapter resolves the assets directory automatically (it emits sta
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "<client-slug>",
+  "workers_dev": false,
   "compatibility_date": "<deploy date>",
   "compatibility_flags": ["nodejs_compat"],
   "main": "@astrojs/cloudflare/entrypoints/server",
@@ -43,6 +44,8 @@ The Cloudflare adapter resolves the assets directory automatically (it emits sta
   // "send_email": [{ "name": "EMAIL" }]
 }
 ```
+
+> **`workers_dev: false` is important once a custom domain is attached.** Without it, the next `wrangler deploy` re-enables the `*.workers.dev` URL. Set it explicitly so only the custom domain is served.
 
 ## Push-to-deploy (Workers Builds)
 
@@ -99,5 +102,6 @@ Other constraints:
 ## DNS / domains
 
 - Custom domains are attached in the Cloudflare dashboard per Worker.
-- Workers `.workers.dev` subdomains are acceptable for demos/previews.
+- **Demo:** the concept Worker `concept-laundry-shop` serves **https://demo-laundry.zuvo.lk/**; `workers_dev: false` keeps the `*.workers.dev` URL disabled.
+- When attaching a custom domain for a client, set `site.config.ts → url` to that domain (canonical/hreflang/sitemap) and keep `workers_dev: false`.
 - Onboarding a sending domain requires the domain to be on Cloudflare DNS in the agency account.

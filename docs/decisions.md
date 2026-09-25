@@ -183,6 +183,13 @@ Append-only. Each entry: ID, date, decision, rationale, alternatives considered.
 - **Rationale:** A real map demonstrates the value and shows exactly where the map will sit, while remaining a per-client config value.
 - **Notes:** The embed lazy-loads third-party content from Google (no API key needed). Client sites can set a place-specific embed URL or clear the field to hide the map.
 
+## D-026 — Demo custom domain; `workers_dev` disabled
+
+- **Date:** 2026-09-22
+- **Decision:** Serve the demo at **https://demo-laundry.zuvo.lk/** and set `"workers_dev": false` in `wrangler.jsonc`. `site.config.ts → url` points at the custom domain so canonical, hreflang, sitemap, and OG tags use it.
+- **Rationale:** A stable, presentable demo URL; explicitly disabling `workers_dev` prevents a later `wrangler deploy` from re-enabling the `*.workers.dev` URL.
+- **Notes:** The concept remains `noindex` (D-021). The Worker keeps the name `concept-laundry-shop`; only the domain changed.
+
 ---
 
 ## Open questions
