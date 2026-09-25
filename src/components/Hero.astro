@@ -29,7 +29,7 @@ const [first, second, third] = t.hero.points;
       <p class="mt-5 max-w-xl text-lg text-ink-muted">{t.hero.subtitle}</p>
 
       <div class="mt-8 flex flex-wrap gap-3">
-        <Button href={wa} variant="whatsapp" size="lg" target="_blank" rel="noopener">
+        <Button href={wa} variant="primary" size="lg" target="_blank" rel="noopener">
           <Icon name="whatsapp" class="h-5 w-5" />
           {t.actions.whatsapp}
         </Button>
@@ -47,33 +47,35 @@ const [first, second, third] = t.hero.points;
           {t.hero.expressBadge}
         </span>
       </p>
-
-      <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2">
-        {
-          t.hero.points.map((point) => (
-            <li class="flex items-center gap-2 text-sm font-medium text-ink-muted">
-              <Icon name="check" class="h-4 w-4 text-brand" />
-              {point}
-            </li>
-          ))
-        }
-      </ul>
     </div>
 
     <div class="relative mx-auto grid w-full max-w-md gap-4">
-      <div class="rounded-brand bg-gradient-to-br from-brand to-brand-strong p-8 text-brand-foreground shadow-xl">
-        <Icon name="truck" class="h-10 w-10" />
-        <p class="mt-6 font-display text-2xl font-bold">{first}</p>
-        <p class="mt-2 text-sm opacity-90">{siteConfig.brand.name}</p>
+      <div
+        class="relative overflow-hidden rounded-brand bg-gradient-to-br from-brand to-brand-strong p-6 text-brand-foreground shadow-xl sm:p-7"
+      >
+        <Icon
+          name="truck"
+          class="pointer-events-none absolute -bottom-6 -right-6 h-40 w-40 text-white/10"
+        />
+        <span class="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15">
+          <Icon name="truck" class="h-6 w-6" />
+        </span>
+        <p class="relative mt-5 font-display text-2xl font-bold">{first}</p>
+        <p class="relative mt-1 text-sm opacity-90">{siteConfig.brand.name}</p>
       </div>
+
       <div class="grid grid-cols-2 gap-4">
-        <div class="rounded-brand border border-ink/10 bg-surface p-5 shadow-sm">
-          <Icon name="clock" class="h-7 w-7 text-brand" />
-          <p class="mt-4 text-sm font-semibold text-ink">{second}</p>
+        <div class="rounded-brand border border-ink/10 bg-surface p-6 shadow-sm sm:p-7">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+            <Icon name="clock" class="h-6 w-6" />
+          </span>
+          <p class="mt-5 text-sm font-semibold text-ink">{second}</p>
         </div>
-        <div class="rounded-brand border border-ink/10 bg-surface p-5 shadow-sm">
-          <Icon name="sparkles" class="h-7 w-7 text-brand" />
-          <p class="mt-4 text-sm font-semibold text-ink">{third}</p>
+        <div class="rounded-brand border border-ink/10 bg-surface p-6 shadow-sm sm:p-7">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+            <Icon name="sparkles" class="h-6 w-6" />
+          </span>
+          <p class="mt-5 text-sm font-semibold text-ink">{third}</p>
         </div>
       </div>
     </div>

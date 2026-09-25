@@ -88,6 +88,14 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Service-area checklist + "is my area covered?" lookup.
 - [x] Static Google reviews badge + express/24-hour hero badge.
 
+## Phase 11 — Header & hero polish ✅
+
+- [x] Header nav reduced to Services · Pricing · Estimate · Contact; Reviews/FAQ/Care/Area moved to the footer.
+- [x] Language switch flush right with a vertical divider.
+- [x] Hero: removed the duplicate checkmark list; primary CTA uses the brand colour.
+- [x] Green reserved for the floating WhatsApp button only.
+- [x] Hero feature cards: consistent padding, radius, and icon badges; decorative van graphic on the lead card.
+
 ## Backlog / ideas
 
 - Optional contact form + Cloudflare email adapter.

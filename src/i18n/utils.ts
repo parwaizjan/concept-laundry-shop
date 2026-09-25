@@ -54,16 +54,25 @@ export function telLink(): string {
   return `tel:${siteConfig.contact.phone.replace(/\s+/g, '')}`;
 }
 
-export const navSections = [
+const sectionLinks = [
   { id: 'services', key: 'services', configKey: 'services' },
   { id: 'pricing', key: 'pricing', configKey: 'pricing' },
   { id: 'estimator', key: 'estimator', configKey: 'estimator' },
   { id: 'reviews', key: 'reviews', configKey: 'testimonials' },
   { id: 'faq', key: 'faq', configKey: 'faq' },
   { id: 'care', key: 'care', configKey: 'care' },
+  { id: 'area', key: 'area', configKey: 'area' },
   { id: 'contact', key: 'contact', configKey: 'contact' },
 ] as const satisfies ReadonlyArray<{
   id: string;
   key: keyof Messages['nav'];
   configKey: keyof typeof siteConfig.sections;
 }>;
+
+/** Full set used in the footer. */
+export const navSections = sectionLinks;
+
+/** Conversion-focused subset used in the header. */
+export const primaryNavSections = sectionLinks.filter((section) =>
+  ['services', 'pricing', 'estimator', 'contact'].includes(section.id),
+);

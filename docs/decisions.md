@@ -164,6 +164,18 @@ Append-only. Each entry: ID, date, decision, rationale, alternatives considered.
 - **Notes:** Live Google reviews would require a billed Google Places API key — deliberately avoided. New section toggles `estimator`, `care`, and `area` were added to `site.config.ts`.
 - **Alternatives:** Static pricing only (rejected: estimator is the standout); live reviews (deferred to client projects where an API key is acceptable).
 
+## D-024 — Header/hero polish and single-green CTA rule
+
+- **Date:** 2026-09-22
+- **Decision:**
+  - **Header nav** shows only a conversion-focused set — **Services, Pricing, Estimate, Contact** (`primaryNavSections`). **Reviews, FAQ, Care, and Service area** are removed from the primary bar and remain in the **footer** (`navSections`, the full set).
+  - The **language switch** sits flush right behind a thin vertical divider.
+  - **Hero** drops the duplicate three-item checkmark list (those points already appear in the feature cards); the primary CTA uses the **brand colour**.
+  - **Green is reserved for the floating WhatsApp button only** — all other WhatsApp CTAs use the brand colour. The `whatsapp` Button variant was removed.
+  - The three hero feature cards share padding, radius, and icon-badge sizing; the lead card gets a decorative van graphic for balance.
+- **Rationale:** Fewer competing CTAs, clearer hierarchy, less visual redundancy, and a single, unmistakable green action.
+- **Alternatives:** Keep all sections in the header (rejected: clutter); green on every WhatsApp CTA (rejected: competing focus).
+
 ---
 
 ## Open questions

@@ -101,4 +101,5 @@ pnpm deploy        # wrangler deploy (or rely on Workers Builds)
 - **All copy lives in `src/i18n/{en,si,ta}.json`** and the three files must stay structurally identical (see D-018). No Astro Content Collections in this template.
 - Keep brand/contact/locale/theme/section toggles in `site.config.ts`; never hardcode them in components.
 - Keep components small, accessible (semantic HTML, labels, focus states), and mobile-first.
+- Header nav uses `primaryNavSections` (conversion-focused: Services, Pricing, Estimate, Contact); the footer uses `navSections` (full list). Keep green reserved for the floating WhatsApp button; other WhatsApp CTAs use the brand colour.
 - Zero client-side framework/islands. The only shipped JS is a few tiny inline scripts (mobile-menu close, price estimator, service-area lookup); each degrades gracefully. The optional email route is the sole on-demand endpoint.

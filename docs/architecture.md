@@ -106,6 +106,8 @@ Components read from here and from `src/i18n` — never hardcode brand, phone, o
 
 `Home` composes the sections in order, gated by `siteConfig.sections`: `Hero → TrustBar → Services → HowItWorks → Pricing → Estimator → Testimonials → Faq → Care → ServiceArea → LocationMap → ContactCta`. `Header` (with `LangToggle`) and `Footer` wrap the page; `WhatsAppFab` floats on all pages.
 
+Navigation: the header uses `primaryNavSections` (Services, Pricing, Estimate, Contact) with the language switch flush right behind a divider; the footer uses the full `navSections` list (which also exposes Reviews, FAQ, Care, and Service area). The only green element is the floating WhatsApp button.
+
 Guidelines: semantic HTML, accessible labels and focus states, mobile-first, no hardcoded brand values, no client-side framework islands. The only shipped JavaScript is a few tiny inline scripts: closing the mobile menu (`<details>`), computing the price estimator total/WhatsApp breakdown, and the service-area lookup. Each degrades gracefully without JS.
 
 ## Indexing
