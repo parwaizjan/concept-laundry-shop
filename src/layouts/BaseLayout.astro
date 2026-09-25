@@ -24,6 +24,7 @@ const {
 } = Astro.props;
 
 const pageTitle = title;
+const noTranslate = lang !== siteConfig.locale.default;
 const siteUrl = Astro.site ?? new URL('https://example.com');
 const canonical = new URL(Astro.url.pathname, siteUrl);
 const ogImage = new URL(siteConfig.brand.ogImage, siteUrl);
@@ -35,13 +36,14 @@ const defaultHref = new URL(switchLocalePath(Astro.url.pathname, defaultLocale),
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} translate={noTranslate ? 'no' : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    {noTranslate && <meta name="google" content="notranslate" />}
     {!siteConfig.indexable && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     {

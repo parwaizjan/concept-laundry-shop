@@ -91,6 +91,7 @@ Components read from here and from `src/i18n` — never hardcode brand, phone, o
 - `useTranslations(locale)` returns the typed catalog (typed against `en.json`, so the three files must stay structurally identical).
 - `localizedPath(path, locale)` / `switchLocalePath(pathname, target)` build links; `LangToggle` links to the same page in every enabled locale.
 - `BaseLayout` emits `hreflang` alternates (including `x-default`) and `og:locale`.
+- Browser auto-translate is suppressed on non-default locales (`translate="no"` + `notranslate` meta) so an already-chosen language isn't machine-translated back; the default-locale page remains translatable. See D-027.
 - Missing translations would fall back to the default catalog (files are kept in sync; no gaps expected).
 - WhatsApp pre-filled messages are localized.
 

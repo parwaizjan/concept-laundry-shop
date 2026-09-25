@@ -190,6 +190,13 @@ Append-only. Each entry: ID, date, decision, rationale, alternatives considered.
 - **Rationale:** A stable, presentable demo URL; explicitly disabling `workers_dev` prevents a later `wrangler deploy` from re-enabling the `*.workers.dev` URL.
 - **Notes:** The concept remains `noindex` (D-021). The Worker keeps the name `concept-laundry-shop`; only the domain changed.
 
+## D-027 — Suppress browser auto-translate on non-default locales
+
+- **Date:** 2026-09-22
+- **Decision:** On pages whose locale is not the default (`/si/`, `/ta/`), emit `translate="no"` on `<html>` and `<meta name="google" content="notranslate">`. The default-locale page stays translatable.
+- **Rationale:** Browsers were auto-translating the Sinhala page back into English, so users saw Sinhala flash then English while the toggle stayed on Sinhala. Since the site ships its own language switcher, machine-translating an already-chosen language is redundant and confusing. Leaving the default page translatable still lets visitors translate English if they wish.
+- **Alternatives:** Disable translation site-wide (rejected: blocks useful translation of the English page); do nothing (rejected: confusing UX).
+
 ---
 
 ## Open questions
