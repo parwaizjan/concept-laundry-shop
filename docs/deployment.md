@@ -46,6 +46,8 @@ The Cloudflare adapter resolves the assets directory automatically (it emits sta
 ```
 
 > **`workers_dev: false` is important once a custom domain is attached.** Without it, the next `wrangler deploy` re-enables the `*.workers.dev` URL. Set it explicitly so only the custom domain is served.
+>
+> For a brand-new client that has no domain yet, set it to `true` to get a temporary `*.workers.dev` preview, then back to `false` once the real domain is attached.
 
 ## Push-to-deploy (Workers Builds)
 
