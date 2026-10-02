@@ -4,9 +4,9 @@
 
 | Concern | Choice | Notes |
 |---|---|---|
-| Framework | **Astro 7** (`7.3.3`) | Static-first, island-free content site. |
+| Framework | **Astro 7** (`7.3.5`) | Static-first, island-free content site. |
 | Styling | **Tailwind CSS v4** (`4.3.3`) via `@tailwindcss/vite` | Design tokens as CSS variables / `@theme`. |
-| Adapter | **`@astrojs/cloudflare`** (`14.3.2`) | Static output; on-demand only for an optional email route. |
+| Adapter | **`@astrojs/cloudflare`** (`14.3.3`) | Static output; on-demand only for an optional email route. |
 | i18n | **Astro built-in i18n** + per-locale JSON | `defaultLocale` from config, `prefixDefaultLocale: false`. |
 | Fonts | **Fontsource variable** (self-hosted) | Plus Jakarta Sans, Inter, DM Sans, Sora, Manrope + Noto Sans Sinhala + Noto Sans Tamil. No external requests. |
 | SEO | **`@astrojs/sitemap`** (`3.7.4`) | Plus per-page meta, canonical, hreflang alternates, OG. |

@@ -103,9 +103,9 @@ Append-only. Each entry: ID, date, decision, rationale, alternatives considered.
 
 - **Date:** 2026-09-22
 - **Decision:**
-  - **Astro 7.3.3**, **`@astrojs/cloudflare` 14.3.2**, **Tailwind CSS 4.3.3**, **`@astrojs/sitemap` 3.7.4**.
+  - **Astro 7.3.5**, **`@astrojs/cloudflare` 14.3.3**, **Tailwind CSS 4.3.3**, **`@astrojs/sitemap` 3.7.4**.
   - **TypeScript pinned to `^6.0.3`** (not 7.x). `astro check` relies on the TypeScript programmatic API, which the native TS 7 compiler does not yet expose.
-  - **`wrangler` pinned to `4.135.0`** (exact) to satisfy pnpm 12's built-in 24h `minimumReleaseAge` supply-chain gate; bump deliberately.
+  - **`wrangler` pinned to `4.145.0`** (exact) to satisfy pnpm 12's built-in 24h `minimumReleaseAge` supply-chain gate; bump deliberately.
   - **pnpm 12** with `pnpm-workspace.yaml` setting `allowBuilds` for `esbuild` and `workerd`.
 - **Rationale:** Reproducible installs that pass pnpm's supply-chain policy and `astro check` on the current toolchain.
 - **Alternatives:** TS 7 (blocked by `astro check`); disabling `minimumReleaseAge` (rejected: keeps security gate).
