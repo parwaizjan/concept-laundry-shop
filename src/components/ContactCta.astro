@@ -1,6 +1,6 @@
 ---
 import type { Messages } from '../i18n/utils';
-import { telLink, whatsappLink } from '../i18n/utils';
+import { demoWhatsappLink, telLink } from '../i18n/utils';
 import Button from './Button.astro';
 import Icon from './Icon.astro';
 
@@ -22,7 +22,7 @@ const { t } = Astro.props;
 
       <div class="relative mt-8 flex flex-wrap justify-center gap-3">
         <Button
-          href={whatsappLink(t.contact.whatsappMessage)}
+          href={demoWhatsappLink(t.contact.whatsappMessage)}
           size="lg"
           variant="inverse"
           target="_blank"

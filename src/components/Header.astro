@@ -2,7 +2,7 @@
 import type { Locale } from '../../site.config';
 import siteConfig from '../../site.config';
 import type { Messages } from '../i18n/utils';
-import { localizedPath, primaryNavSections, telLink, whatsappLink } from '../i18n/utils';
+import { demoWhatsappLink, localizedPath, primaryNavSections, telLink } from '../i18n/utils';
 import Button from './Button.astro';
 import Icon from './Icon.astro';
 import LangToggle from './LangToggle.astro';
@@ -16,7 +16,7 @@ interface Props {
 const { locale, t, pathname } = Astro.props;
 const homeHref = localizedPath('', locale);
 const visibleNav = primaryNavSections.filter((s) => siteConfig.sections[s.configKey]);
-const wa = whatsappLink(t.contact.whatsappMessage);
+const wa = demoWhatsappLink(t.contact.whatsappMessage);
 ---
 
 <header class="sticky top-0 z-40 border-b border-ink/10 bg-surface/90 backdrop-blur">

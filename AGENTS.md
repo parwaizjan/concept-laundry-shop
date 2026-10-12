@@ -40,6 +40,7 @@ A reusable **Astro** website template for **laundry shops**, built initially as 
 - Infrastructure: **central agency Cloudflare account**; **Cloudflare Workers Builds** (Git integration) for push-to-deploy.
 - Theme presets: **5–6** (color + font tokens).
 - Pitch features: **price estimator**, **care guide section**, **service-area lookup**, **Google reviews + express badges**.
+- Demo notices: a **sample ribbon** (English, all locales) + a **`[DEMO: Laundry]` tag** on visitor-facing messages, both in `site.config.ts → demo`; client clones disable them. Studio enquiry link in the ribbon is untagged.
 - Analytics: **none** for the concept.
 - Page structure: **single-page** (anchored sections) **+ legal pages**.
 - Design vibe: **clean & fresh**.

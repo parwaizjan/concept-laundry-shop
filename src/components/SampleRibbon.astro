@@ -1,0 +1,24 @@
+---
+import siteConfig from '../../site.config';
+import { studioEnquiryLink } from '../i18n/utils';
+
+const show = siteConfig.demo.ribbon && siteConfig.demo.studioWhatsapp;
+---
+
+{
+  show && (
+    <div class="bg-brand/10">
+      <div class="container-page flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 py-2 text-center text-xs text-ink-muted sm:text-sm">
+        <span>Sample website — a demo by {siteConfig.demo.studioName}</span>
+        <a
+          href={studioEnquiryLink()}
+          target="_blank"
+          rel="noopener"
+          class="font-semibold text-brand underline underline-offset-2 transition hover:text-brand-strong"
+        >
+          Message us
+        </a>
+      </div>
+    </div>
+  )
+}

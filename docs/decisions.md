@@ -206,6 +206,17 @@ Append-only. Each entry: ID, date, decision, rationale, alternatives considered.
 - **Rationale:** Avoid AI confusion and guarantee readable contrast on the brand panel in every theme.
 - **Note:** `inverse` uses a fixed `text-slate-900` (not `text-ink`) so it stays readable in the dark theme, where `ink` is near-white.
 
+## D-029 — Demo standard: sample ribbon, studio number, and source tag
+
+- **Date:** 2026-09-22
+- **Decision:**
+  - A **non-dismissible sample ribbon** renders at the very top of **every page and locale** (in `BaseLayout`, above the header): "Sample website — a demo by Zuvo Web Studio Express" plus a **Message us** link. That link is a **website enquiry to the studio** (untagged), pre-filled: `Hi Zuvo Web Studio Express, I'd like a website like the FreshFold Laundry demo for my shop.`
+  - All WhatsApp links use the **studio number `+94 74 343 0033`** (`contact.whatsapp`, `contact.phone`).
+  - Every visitor-facing **demo** message is prefixed with **`[DEMO: Laundry]`** through central helpers (`withDemoTag`, `demoWhatsappLink`), so demo orders are distinguishable from website enquiries.
+  - All three are config-driven (`site.config.ts → demo`) and editable via `pnpm setup`, so a client clone can disable the ribbon and clear the tag.
+- **Rationale:** One standard across the Zuvo demo sites; each demo is recognisable and mixed enquiries route cleanly.
+- **Notes:** The concept only. Client clones should set `demo.ribbon: false` and `demo.tag: ''`.
+
 ---
 
 ## Open questions

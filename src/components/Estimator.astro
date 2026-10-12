@@ -1,7 +1,7 @@
 ---
 import siteConfig from '../../site.config';
 import type { Messages } from '../i18n/utils';
-import { whatsappLink } from '../i18n/utils';
+import { demoWhatsappLink, withDemoTag } from '../i18n/utils';
 import Icon from './Icon.astro';
 import SectionHeading from './SectionHeading.astro';
 
@@ -12,7 +12,7 @@ interface Props {
 const { t } = Astro.props;
 const number = siteConfig.contact.whatsapp.replace(/[^0-9]/g, '');
 const currency = siteConfig.currencySymbol;
-const fallback = whatsappLink(t.contact.whatsappMessage);
+const fallback = demoWhatsappLink(t.contact.whatsappMessage);
 ---
 
 <section
@@ -21,10 +21,10 @@ const fallback = whatsappLink(t.contact.whatsappMessage);
   data-estimator
   data-wa-number={number}
   data-currency={currency}
-  data-greeting={t.estimator.whatsappIntro}
+  data-greeting={withDemoTag(t.estimator.whatsappIntro)}
   data-total-label={t.estimator.total}
   data-empty={t.estimator.empty}
-  data-fallback-message={t.contact.whatsappMessage}
+  data-fallback-message={withDemoTag(t.contact.whatsappMessage)}
 >
   <div class="container-page">
     <SectionHeading title={t.estimator.title} subtitle={t.estimator.subtitle} align="center" />

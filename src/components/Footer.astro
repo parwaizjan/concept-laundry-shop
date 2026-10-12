@@ -2,7 +2,7 @@
 import type { Locale } from '../../site.config';
 import siteConfig from '../../site.config';
 import type { Messages } from '../i18n/utils';
-import { localizedPath, navSections, telLink, whatsappLink } from '../i18n/utils';
+import { demoWhatsappLink, localizedPath, navSections, telLink } from '../i18n/utils';
 import Icon from './Icon.astro';
 
 interface Props {
@@ -50,7 +50,7 @@ const visibleNav = navSections.filter((s) => siteConfig.sections[s.configKey]);
       <ul class="mt-4 space-y-2.5 text-sm text-ink-muted">
         <li>
           <a
-            href={whatsappLink(t.contact.whatsappMessage)}
+            href={demoWhatsappLink(t.contact.whatsappMessage)}
             class="inline-flex items-center gap-2 transition hover:text-ink"
             target="_blank"
             rel="noopener"

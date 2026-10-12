@@ -84,6 +84,10 @@ function parseCurrent(text) {
     theme: grab(/theme:\s*'([^']*)'/, 'fresh-blue'),
     currency: grab(/currency:\s*'([^']*)'/, 'LKR'),
     currencySymbol: grab(/currencySymbol:\s*'([^']*)'/, 'Rs.'),
+    ribbon: text.match(/ribbon:\s*(true|false)/)?.[1] !== 'false',
+    studioName: grab(/studioName:\s*'([^']*)'/),
+    studioWhatsapp: grab(/studioWhatsapp:\s*'([^']*)'/),
+    demoTag: grab(/\btag:\s*'([^']*)'/, ''),
     sections,
   };
 }
@@ -162,6 +166,12 @@ export interface SiteConfig {
   theme: ThemePreset;
   currency: string;
   currencySymbol: string;
+  demo: {
+    ribbon: boolean;
+    studioName: string;
+    studioWhatsapp: string;
+    tag: string;
+  };
   sections: SiteSection;
 }
 
@@ -190,6 +200,12 @@ const siteConfig: SiteConfig = {
   theme: '${next.theme}',
   currency: '${next.currency}',
   currencySymbol: '${next.currencySymbol}',
+  demo: {
+    ribbon: ${next.ribbon},
+    studioName: '${next.studioName}',
+    studioWhatsapp: '${next.studioWhatsapp}',
+    tag: '${next.demoTag}',
+  },
   sections: {
 ${sectionLines}
   },
@@ -248,6 +264,10 @@ async function main() {
   );
   const currency = await ask('Currency code', existing.currency);
   const currencySymbol = await ask('Currency symbol', existing.currencySymbol);
+  const ribbon = await askBoolean('Show "sample website" demo ribbon?', existing.ribbon);
+  const studioName = await ask('Studio name (ribbon notice)', existing.studioName);
+  const studioWhatsapp = await ask('Studio WhatsApp (ribbon enquiry)', existing.studioWhatsapp);
+  const demoTag = await ask('Demo message tag (blank to disable)', existing.demoTag);
 
   const next = {
     url,
@@ -266,6 +286,10 @@ async function main() {
     theme,
     currency,
     currencySymbol,
+    ribbon,
+    studioName,
+    studioWhatsapp,
+    demoTag,
     sections: existing.sections,
     logo,
     ogImage,

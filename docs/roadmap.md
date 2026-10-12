@@ -98,6 +98,13 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done
 - [x] Real Google Maps embed (configurable) with a decorative fallback.
 - [x] Replaced the AI-looking sparkle icon and fixed on-brand button contrast (D-028).
 
+## Phase 12 — Demo standard ✅
+
+- [x] Non-dismissible sample ribbon on every page/locale, with an untagged studio website-enquiry link.
+- [x] All WhatsApp links use the studio number `+94 74 343 0033`.
+- [x] Central `[DEMO: Laundry]` tag on every visitor-facing demo message (`withDemoTag` / `demoWhatsappLink`).
+- [x] All three config-driven (`site.config.ts → demo`) and editable in `pnpm setup`.
+
 ## Backlog / ideas
 
 - Optional contact form + Cloudflare email adapter.

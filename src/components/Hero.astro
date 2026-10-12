@@ -1,7 +1,7 @@
 ---
 import siteConfig from '../../site.config';
 import type { Messages } from '../i18n/utils';
-import { whatsappLink } from '../i18n/utils';
+import { demoWhatsappLink } from '../i18n/utils';
 import Button from './Button.astro';
 import Icon from './Icon.astro';
 
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { t } = Astro.props;
-const wa = whatsappLink(t.contact.whatsappMessage);
+const wa = demoWhatsappLink(t.contact.whatsappMessage);
 const [first, second, third] = t.hero.points;
 ---
 

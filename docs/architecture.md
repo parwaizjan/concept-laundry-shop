@@ -78,9 +78,12 @@ Single source of truth per client, rewritten by `pnpm setup`:
   locale:  { default: 'en', enabled: ['en','si','ta'] },
   theme:   'fresh-blue',                // one of the theme presets
   currency, currencySymbol,
+  demo:    { ribbon, studioName, studioWhatsapp, tag },
   sections: { hero, trust, services, howItWorks, pricing, estimator, testimonials, faq, area, location, contact },
 }
 ```
+
+`BaseLayout` renders the **sample ribbon** (D-029) above `<slot />` on every page/locale; `demo.ribbon` and `demo.tag` let client clones turn the concept-only notices off.
 
 Components read from here and from `src/i18n` — never hardcode brand, phone, or currency.
 

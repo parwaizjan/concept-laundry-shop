@@ -14,6 +14,7 @@ All user-facing copy lives in **three parallel locale catalogs**: `src/i18n/en.j
 | Currency, default locale, enabled locales | `site.config.ts` → `locale`, `currency` |
 | Search-engine indexing (off for the concept) | `site.config.ts` → `indexable` |
 | Google reviews destination | `site.config.ts` → `contact.reviewsUrl` |
+| Sample ribbon (concept), studio name/number, demo tag | `site.config.ts` → `demo` |
 | Theme preset | `src/styles/theme.css` (or `pnpm setup`) |
 | Section visibility | `site.config.ts` → `sections` |
 | Page title + meta description | `en.json`/`si.json`/`ta.json` → `meta` |

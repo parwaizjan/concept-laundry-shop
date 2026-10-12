@@ -10,6 +10,7 @@ import '../styles/global.css';
 
 import siteConfig from '../../site.config';
 import { defaultLocale, enabledLocales, switchLocalePath } from '../i18n/utils';
+import SampleRibbon from '../components/SampleRibbon.astro';
 
 interface Props {
   title?: string;
@@ -62,6 +63,7 @@ const defaultHref = new URL(switchLocalePath(Astro.url.pathname, defaultLocale),
     <meta name="generator" content={Astro.generator} />
   </head>
   <body class="min-h-dvh antialiased">
+    <SampleRibbon />
     <slot />
   </body>
 </html>

@@ -55,6 +55,12 @@ export interface SiteConfig {
   theme: ThemePreset;
   currency: string;
   currencySymbol: string;
+  demo: {
+    ribbon: boolean;
+    studioName: string;
+    studioWhatsapp: string;
+    tag: string;
+  };
   sections: SiteSection;
 }
 
@@ -68,8 +74,8 @@ const siteConfig: SiteConfig = {
     ogImage: '/og.svg',
   },
   contact: {
-    whatsapp: '+94771234567',
-    phone: '+94771234567',
+    whatsapp: '+94743430033',
+    phone: '+94743430033',
     email: 'hello@freshfold.lk',
     address: '123 Temple Road, Nugegoda, Colombo 10250, Sri Lanka',
     mapUrl: 'https://www.google.com/maps?q=Nugegoda,+Colombo',
@@ -83,6 +89,12 @@ const siteConfig: SiteConfig = {
   theme: 'fresh-blue',
   currency: 'LKR',
   currencySymbol: 'Rs.',
+  demo: {
+    ribbon: true,
+    studioName: 'Zuvo Web Studio Express',
+    studioWhatsapp: '+94743430033',
+    tag: '[DEMO: Laundry]',
+  },
   sections: {
     hero: true,
     trust: true,

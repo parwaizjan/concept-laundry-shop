@@ -54,6 +54,25 @@ export function telLink(): string {
   return `tel:${siteConfig.contact.phone.replace(/\s+/g, '')}`;
 }
 
+/** Prefix applied to every visitor-facing demo message so the studio can tell them apart. */
+export const demoTag = siteConfig.demo.tag;
+
+export function withDemoTag(message: string): string {
+  return demoTag ? `${demoTag} ${message}` : message;
+}
+
+/** WhatsApp link for the demo's own CTAs (tagged). */
+export function demoWhatsappLink(message: string): string {
+  return whatsappLink(withDemoTag(message));
+}
+
+/** WhatsApp link for the ribbon's website enquiry (studio notice, untagged). */
+export function studioEnquiryLink(): string {
+  const number = siteConfig.demo.studioWhatsapp.replace(/[^0-9]/g, '');
+  const message = `Hi ${siteConfig.demo.studioName}, I'd like a website like the ${siteConfig.brand.name} demo for my shop.`;
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+}
+
 const sectionLinks = [
   { id: 'services', key: 'services', configKey: 'services' },
   { id: 'pricing', key: 'pricing', configKey: 'pricing' },
