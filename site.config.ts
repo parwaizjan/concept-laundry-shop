@@ -91,7 +91,7 @@ const siteConfig: SiteConfig = {
   currencySymbol: 'Rs.',
   demo: {
     ribbon: true,
-    studioName: 'Zuvo Web Studio Express',
+    studioName: 'Zuvo Web Studio',
     studioWhatsapp: '+94743430033',
     tag: '[DEMO: Laundry]',
   },
